@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://isoxpert.com/sitemap.xml

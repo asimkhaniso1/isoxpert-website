@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 110" width="420" height="110">
+  <!-- Mark -->
+  <g transform="translate(8,8)">
+    <polygon points="18,16 36,16 78,84 60,84" fill="#0B1E47"/>
+    <polygon points="18,84 36,84 78,16 60,16" fill="#2563EB"/>
+    <circle cx="69" cy="10" r="10" fill="#2563EB"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="120" y="72" font-family="Montserrat, 'Segoe UI', Arial, sans-serif" font-size="56" font-weight="800" letter-spacing="-1">
+    <tspan fill="#0B1E47">ISO</tspan><tspan fill="#2563EB">XPERT</tspan>
+  </text>
+</svg>

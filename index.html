@@ -1,13 +1,563 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B1E47" />
 
+  <!-- Brand fonts: Montserrat (logo + headings), Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Primary SEO -->
+  <title>ISOXPERT — AI-Powered Compliance, Inspection, QC &amp; Audit Platform</title>
+  <meta name="description" content="ISOXPERT is a unified, AI-powered ecosystem for governance, risk, compliance, inspection, quality control and certification audits. One platform for ISO 9001, 14001, 45001, 27001, 22301 and more." />
+  <meta name="keywords" content="ISOXPERT, ISO compliance software, GRC platform, AI compliance, ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 22301, inspection management, quality control software, audit management, ISO certification" />
+  <meta name="author" content="ISOXPERT" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://isoxpert.com/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ISOXPERT" />
+  <meta property="og:title" content="ISOXPERT — Clarity in a Complex World" />
+  <meta property="og:description" content="An AI-powered ecosystem for compliance, inspection, quality control and certification audits. One platform. Unlimited possibilities. Total compliance." />
+  <meta property="og:url" content="https://isoxpert.com/" />
+  <meta property="og:image" content="https://isoxpert.com/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ISOXPERT — Clarity in a Complex World" />
+  <meta name="twitter:description" content="An AI-powered ecosystem for compliance, inspection, quality control and certification audits." />
+  <meta name="twitter:image" content="https://isoxpert.com/og-image.svg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ISOXPERT",
+    "url": "https://isoxpert.com",
+    "logo": "https://isoxpert.com/logo.svg",
+    "description": "AI-powered ecosystem for compliance, inspection, quality control and certification audits.",
+    "slogan": "Clarity in a Complex World",
+    "sameAs": [
+      "https://compliance.isoxpert.com",
+      "https://inspect.isoxpert.com"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "ISOXPERT Platform Ecosystem",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ISOXPERT Compliance", "description": "Governance, Risk & Compliance management platform.", "url": "https://compliance.isoxpert.com" },
+      { "@type": "ListItem", "position": 2, "name": "ISOXPERT Inspection", "description": "Smart inspection management platform.", "url": "https://inspect.isoxpert.com" },
+      { "@type": "ListItem", "position": 3, "name": "ISOXPERT QC", "description": "Quality control & product conformance platform.", "url": "https://qc.isoxpert.com" },
+      { "@type": "ListItem", "position": 4, "name": "ISOXPERT Audit", "description": "Certification audit management platform.", "url": "https://audit.isoxpert.com" }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --navy: #0B1E47;
+      --navy-2: #102a63;
+      --blue: #2563EB;
+      --blue-dark: #1D4ED8;
+      --green: #16A34A;
+      --orange: #F97316;
+      --purple: #7C3AED;
+      --ink: #0f172a;
+      --slate: #475569;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --bg: #ffffff;
+      --bg-soft: #f8fafc;
+      --radius: 18px;
+      --shadow: 0 20px 50px -25px rgba(11, 30, 71, 0.35);
+      --maxw: 1200px;
+      --font-head: "Montserrat", "Segoe UI", system-ui, Arial, sans-serif;
+      --font-body: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; }
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    section { position: relative; }
+
+    /* ---------- Logo ---------- */
+    /* Brand font on logo wordmark + all headings */
+    .logo .word, h1, h2, h3, h4, h5,
+    .hero h1, .sec-head h2, .cta-band h2, .app-card h3, .feature h4,
+    .hero-card h3, .chip b, .hero-stats .s b { font-family: var(--font-head); }
+
+    .logo { display: inline-flex; align-items: center; gap: 11px; }
+    .logo svg { width: 38px; height: 38px; flex: none; }
+    .logo .word { font-weight: 800; font-size: 23px; letter-spacing: -0.3px; line-height: 1; }
+    .logo .word .iso { color: var(--navy); }
+    .logo .word .xpert { color: var(--blue); }
+    .logo.light .word .iso { color: #ffffff; }
+    .logo.light .word .xpert { color: #7eb0ff; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { font-size: 14px; font-weight: 600; color: var(--slate); transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 14px; padding: 11px 22px;
+      border-radius: 999px; transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 10px 25px -10px rgba(37,99,235,.7); }
+    .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .btn-ghost { background: #fff; color: var(--navy); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+    .nav .btn { padding: 9px 18px; }
+    .menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .menu-btn span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 2px; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background:
+        radial-gradient(900px 500px at 85% -10%, rgba(37,99,235,.14), transparent 60%),
+        radial-gradient(700px 500px at 0% 110%, rgba(124,58,237,.10), transparent 55%),
+        var(--bg-soft);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .hero-inner { padding: 84px 0 90px; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--blue); background: rgba(37,99,235,.10); border: 1px solid rgba(37,99,235,.2);
+      padding: 7px 14px; border-radius: 999px; margin-bottom: 22px;
+    }
+    .hero h1 { font-size: clamp(38px, 5vw, 60px); line-height: 1.04; letter-spacing: -1.5px; color: var(--navy); font-weight: 800; }
+    .hero h1 .grad { background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p.lead { margin-top: 22px; font-size: 18px; color: var(--slate); max-width: 540px; }
+    .hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-stats { margin-top: 40px; display: flex; gap: 34px; flex-wrap: wrap; }
+    .hero-stats .s b { display: block; font-size: 26px; font-weight: 800; color: var(--navy); }
+    .hero-stats .s span { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+
+    /* Hero visual card */
+    .hero-card {
+      background: linear-gradient(160deg, var(--navy), var(--navy-2));
+      border-radius: 26px; padding: 34px; color: #fff; box-shadow: var(--shadow); position: relative; overflow: hidden;
+    }
+    .hero-card::before { content: ""; position: absolute; width: 280px; height: 280px; right: -80px; top: -90px; background: radial-gradient(circle, rgba(37,99,235,.5), transparent 70%); }
+    .hero-card h3 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #7eb0ff; position: relative; }
+    .mini-grid { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; }
+    .mini {
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px; padding: 16px; transition: transform .2s, background .2s;
+    }
+    .mini:hover { transform: translateY(-3px); background: rgba(255,255,255,.1); }
+    .mini .dot { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; margin-bottom: 12px; }
+    .mini b { font-size: 14px; display: block; }
+    .mini span { font-size: 11px; color: #b9c6e0; }
+    .badge-live { font-size: 9px; font-weight: 800; letter-spacing: 1px; padding: 2px 7px; border-radius: 999px; background: #16A34A; color: #fff; text-transform: uppercase; }
+    .badge-soon { font-size: 9px; font-weight: 800; letter-spacing: 1px; padding: 2px 7px; border-radius: 999px; background: rgba(255,255,255,.16); color: #cdd9f0; text-transform: uppercase; }
+
+    /* ---------- Section heading ---------- */
+    .sec { padding: 84px 0; }
+    .sec-head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+    .sec-head .kicker { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); }
+    .sec-head h2 { font-size: clamp(28px, 3.6vw, 40px); color: var(--navy); letter-spacing: -1px; margin: 12px 0; line-height: 1.1; }
+    .sec-head p { color: var(--slate); font-size: 17px; }
+
+    /* ---------- App cards ---------- */
+    .apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .app-card {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px 24px; display: flex; flex-direction: column;
+      transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; overflow: hidden;
+    }
+    .app-card::after { content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+    .app-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: transparent; }
+    .app-card:hover::after { transform: scaleX(1); }
+    .app-ico { width: 54px; height: 54px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px; background: var(--accent-soft); color: var(--accent); }
+    .app-card h3 { font-size: 19px; color: var(--navy); margin-bottom: 6px; }
+    .app-card h3 small { font-weight: 800; color: var(--accent); }
+    .app-card .role { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--accent); margin-bottom: 12px; }
+    .app-card p { font-size: 14px; color: var(--slate); flex: 1; }
+    .app-foot { margin-top: 20px; display: flex; align-items: center; justify-content: space-between; }
+    .app-foot .link { font-size: 13px; font-weight: 700; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+    .app-foot .domain { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .tag-live { font-size: 10px; font-weight: 800; letter-spacing: 1px; padding: 4px 9px; border-radius: 999px; background: rgba(22,163,74,.12); color: var(--green); text-transform: uppercase; }
+    .tag-soon { font-size: 10px; font-weight: 800; letter-spacing: 1px; padding: 4px 9px; border-radius: 999px; background: #f1f5f9; color: var(--muted); text-transform: uppercase; }
+
+    .c-blue { --accent: var(--blue); --accent-soft: rgba(37,99,235,.10); }
+    .c-green { --accent: var(--green); --accent-soft: rgba(22,163,74,.10); }
+    .c-orange { --accent: var(--orange); --accent-soft: rgba(249,115,22,.12); }
+    .c-purple { --accent: var(--purple); --accent-soft: rgba(124,58,237,.10); }
+
+    /* ---------- Features ---------- */
+    .features-sec { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .feature { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .feature .fi { width: 46px; height: 46px; border-radius: 12px; background: rgba(37,99,235,.1); color: var(--blue); display: grid; place-items: center; margin-bottom: 16px; }
+    .feature h4 { font-size: 16px; color: var(--navy); margin-bottom: 6px; }
+    .feature p { font-size: 14px; color: var(--slate); }
+
+    /* ---------- Standards ---------- */
+    .standards { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .chip {
+      display: inline-flex; flex-direction: column; align-items: center; gap: 2px;
+      border: 1px solid var(--line); border-radius: 14px; padding: 16px 22px; min-width: 150px; background: #fff;
+      transition: border-color .2s, transform .2s;
+    }
+    .chip:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .chip b { font-size: 18px; color: var(--navy); }
+    .chip span { font-size: 12px; color: var(--muted); font-weight: 600; }
+
+    /* ---------- CTA band ---------- */
+    .cta-band { background: linear-gradient(135deg, var(--navy), var(--navy-2)); color: #fff; border-radius: 26px; padding: 56px; text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow); }
+    .cta-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px 300px at 50% -20%, rgba(37,99,235,.4), transparent 60%); }
+    .cta-band h2 { position: relative; font-size: clamp(26px, 3.4vw, 38px); letter-spacing: -1px; }
+    .cta-band p { position: relative; color: #c3d1ec; margin: 14px auto 28px; max-width: 540px; font-size: 17px; }
+    .cta-band .hero-cta { position: relative; justify-content: center; }
+    .btn-white { background: #fff; color: var(--navy); }
+    .btn-white:hover { transform: translateY(-2px); }
+    .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
+    .btn-outline-light:hover { background: rgba(255,255,255,.1); }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--navy); color: #cdd9f0; padding: 60px 0 28px; }
+    .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+    footer p.about { color: #9fb0d4; font-size: 14px; margin-top: 16px; max-width: 320px; }
+    footer h5 { color: #fff; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+    footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    footer ul a { font-size: 14px; color: #9fb0d4; transition: color .2s; }
+    footer ul a:hover { color: #fff; }
+    .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 44px; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #7e90b8; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .apps, .features { grid-template-columns: repeat(2, 1fr); }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; background: #fff; border-bottom: 1px solid var(--line); padding: 18px 24px; gap: 16px; }
+      .menu-btn { display: block; }
+      .nav .btn.nav-cta { display: none; }
+    }
+    @media (max-width: 560px) {
+      .apps, .features { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr; }
+      .cta-band { padding: 40px 24px; }
+      .sec { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reusable logo mark symbol -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="x-mark" viewBox="0 0 100 100">
+      <polygon points="20,16 38,16 80,84 62,84" fill="#0B1E47"/>
+      <polygon points="20,84 38,84 80,16 62,16" fill="#2563EB"/>
+      <circle cx="71" cy="10" r="10" fill="#2563EB"/>
+    </symbol>
+  </svg>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="logo" aria-label="ISOXPERT home">
+        <svg aria-hidden="true"><use href="#x-mark"/></svg>
+        <span class="word"><span class="iso">ISO</span><span class="xpert">XPERT</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#features">Why ISOXPERT</a>
+        <a href="#standards">Standards</a>
+        <a href="https://compliance.isoxpert.com" rel="noopener">Compliance</a>
+        <a href="https://inspect.isoxpert.com" rel="noopener">Inspection</a>
+      </nav>
+      <a href="#ecosystem" class="btn btn-primary nav-cta">Explore Platform</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">Clarity in a Complex World</span>
+        <h1>Digital excellence for <span class="grad">compliance, quality &amp; certification.</span></h1>
+        <p class="lead">ISOXPERT is a unified, AI-powered ecosystem that takes you from clause to record — connecting governance, inspection, quality control and certification audits in one intelligent platform.</p>
+        <div class="hero-cta">
+          <a href="https://compliance.isoxpert.com" class="btn btn-primary" rel="noopener">Launch Compliance →</a>
+          <a href="#ecosystem" class="btn btn-ghost">See all 4 apps</a>
+        </div>
+        <div class="hero-stats">
+          <div class="s"><b>4</b><span>Integrated Apps</span></div>
+          <div class="s"><b>2</b><span>Live Now</span></div>
+          <div class="s"><b>15+</b><span>ISO Standards</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="false">
+        <h3>One ecosystem</h3>
+        <div class="mini-grid">
+          <div class="mini">
+            <div class="dot" style="background:rgba(37,99,235,.25)">🛡️</div>
+            <b>Compliance</b><span>GRC platform</span><br><span class="badge-live">Live</span>
+          </div>
+          <div class="mini">
+            <div class="dot" style="background:rgba(22,163,74,.25)">🔍</div>
+            <b>Inspection</b><span>Smart inspections</span><br><span class="badge-live">Live</span>
+          </div>
+          <div class="mini">
+            <div class="dot" style="background:rgba(249,115,22,.25)">📦</div>
+            <b>QC</b><span>Quality control</span><br><span class="badge-soon">Soon</span>
+          </div>
+          <div class="mini">
+            <div class="dot" style="background:rgba(124,58,237,.25)">📋</div>
+            <b>Audit</b><span>Certification audits</span><br><span class="badge-soon">Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Ecosystem / Apps ===== -->
+  <section class="sec" id="ecosystem">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Our Ecosystem</div>
+        <h2>Four connected platforms. One source of truth.</h2>
+        <p>Each app works on its own and gets smarter together — sharing your standards, documents and data across the entire compliance lifecycle.</p>
+      </div>
+
+      <div class="apps">
+        <!-- Compliance (LIVE) -->
+        <a class="app-card c-blue" href="https://compliance.isoxpert.com" rel="noopener">
+          <div class="app-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>ISOXPERT <small>Compliance</small></h3>
+          <div class="role">GRC Platform</div>
+          <p>AI-powered governance, risk &amp; compliance. Generate clause-mapped documentation, manage the full governance lifecycle and stay audit-ready.</p>
+          <div class="app-foot">
+            <span class="link">Open app →</span>
+            <span class="tag-live">● Live</span>
+          </div>
+          <div class="app-foot" style="margin-top:6px"><span class="domain">compliance.isoxpert.com</span></div>
+        </a>
+
+        <!-- Inspection (LIVE) -->
+        <a class="app-card c-green" href="https://inspect.isoxpert.com" rel="noopener">
+          <div class="app-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <h3>ISOXPERT <small>Inspection</small></h3>
+          <div class="role">Inspection Mgmt</div>
+          <p>Smart inspection management. Plan, conduct and report inspections on any device with digital checklists, evidence capture and instant insights.</p>
+          <div class="app-foot">
+            <span class="link">Open app →</span>
+            <span class="tag-live">● Live</span>
+          </div>
+          <div class="app-foot" style="margin-top:6px"><span class="domain">inspect.isoxpert.com</span></div>
+        </a>
+
+        <!-- QC (SOON) -->
+        <a class="app-card c-orange" href="https://qc.isoxpert.com" rel="noopener">
+          <div class="app-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          </div>
+          <h3>ISOXPERT <small>QC</small></h3>
+          <div class="role">Quality Control</div>
+          <p>Quality control &amp; product conformance. Track defects, sampling plans and acceptance criteria to ensure every product meets specification.</p>
+          <div class="app-foot">
+            <span class="link">Visit site →</span>
+            <span class="tag-soon">Soon</span>
+          </div>
+          <div class="app-foot" style="margin-top:6px"><span class="domain">qc.isoxpert.com</span></div>
+        </a>
+
+        <!-- Audit (SOON) -->
+        <a class="app-card c-purple" href="https://audit.isoxpert.com" rel="noopener">
+          <div class="app-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+          </div>
+          <h3>ISOXPERT <small>Audit</small></h3>
+          <div class="role">Certification Audit</div>
+          <p>Certification audit management. Plan audit programmes, schedule auditors, log findings and drive corrective actions to closure.</p>
+          <div class="app-foot">
+            <span class="link">Visit site →</span>
+            <span class="tag-soon">Soon</span>
+          </div>
+          <div class="app-foot" style="margin-top:6px"><span class="domain">audit.isoxpert.com</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="sec features-sec" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Why ISOXPERT</div>
+        <h2>Smarter, faster, audit-ready by design.</h2>
+        <p>Replace scattered spreadsheets and manual paperwork with one intelligent platform built for modern compliance teams.</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="fi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
+          </div>
+          <h4>AI-Powered</h4>
+          <p>AI understands your standards and context to generate accurate, clause-mapped content in seconds.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/></svg>
+          </div>
+          <h4>Integrated &amp; Automated</h4>
+          <p>All modules connected with smart automation — streamline workflows and cut manual effort end-to-end.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+          </div>
+          <h4>Data-Driven Insights</h4>
+          <p>Make better decisions with real-time analytics and complete traceability from clause to record.</p>
+        </div>
+        <div class="feature">
+          <div class="fi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h4>Secure &amp; Reliable</h4>
+          <p>Enterprise-grade security and version control. Cloud-based, scalable and built for growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Standards ===== -->
+  <section class="sec" id="standards">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Multi-Standard. One Platform.</div>
+        <h2>Built around the standards you certify to.</h2>
+        <p>Support for the world's leading ISO management system standards — and more.</p>
+      </div>
+      <div class="standards">
+        <div class="chip"><b>ISO 9001</b><span>Quality</span></div>
+        <div class="chip"><b>ISO 14001</b><span>Environment</span></div>
+        <div class="chip"><b>ISO 45001</b><span>Health &amp; Safety</span></div>
+        <div class="chip"><b>ISO 27001</b><span>Information Security</span></div>
+        <div class="chip"><b>ISO 22301</b><span>Business Continuity</span></div>
+        <div class="chip"><b>…and more</b><span>Multi-standard ready</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Ready to revolutionise your compliance?</h2>
+        <p>One platform. Unlimited possibilities. Total compliance. Start with the apps that are live today.</p>
+        <div class="hero-cta">
+          <a href="https://compliance.isoxpert.com" class="btn btn-white" rel="noopener">Launch Compliance</a>
+          <a href="https://inspect.isoxpert.com" class="btn btn-outline-light" rel="noopener">Launch Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="#top" class="logo light" aria-label="ISOXPERT home">
+            <svg aria-hidden="true"><use href="#x-mark"/></svg>
+            <span class="word"><span class="iso">ISO</span><span class="xpert">XPERT</span></span>
+          </a>
+          <p class="about">Digital excellence for compliance, quality &amp; certification. An AI-powered ecosystem empowering organisations to achieve excellence.</p>
+        </div>
+        <div>
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="https://compliance.isoxpert.com" rel="noopener">Compliance</a></li>
+            <li><a href="https://inspect.isoxpert.com" rel="noopener">Inspection</a></li>
+            <li><a href="https://qc.isoxpert.com" rel="noopener">QC <span style="font-size:11px;opacity:.7">(soon)</span></a></li>
+            <li><a href="https://audit.isoxpert.com" rel="noopener">Audit <span style="font-size:11px;opacity:.7">(soon)</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#features">Why ISOXPERT</a></li>
+            <li><a href="#standards">Standards</a></li>
+            <li><a href="#ecosystem">Ecosystem</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Domains</h5>
+          <ul>
+            <li><a href="https://isoxpert.com" rel="noopener">isoxpert.com</a></li>
+            <li><a href="https://compliance.isoxpert.com" rel="noopener">compliance.isoxpert.com</a></li>
+            <li><a href="https://inspect.isoxpert.com" rel="noopener">inspect.isoxpert.com</a></li>
+            <li><a href="https://qc.isoxpert.com" rel="noopener">qc.isoxpert.com</a></li>
+            <li><a href="https://audit.isoxpert.com" rel="noopener">audit.isoxpert.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="yr">2026</span> ISOXPERT. All rights reserved.</span>
+        <span>One Platform. Unlimited Possibilities. Total Compliance.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    var mb = document.getElementById('menuBtn');
+    var nl = document.getElementById('navLinks');
+    mb.addEventListener('click', function () {
+      var open = nl.classList.toggle('open');
+      mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nl.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { nl.classList.remove('open'); });
+    });
+    // Current year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

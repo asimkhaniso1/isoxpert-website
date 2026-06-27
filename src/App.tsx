@@ -1,13 +1,13 @@
 import { motion } from 'motion/react';
-import { 
-  ShieldCheck, 
-  Settings, 
-  Users, 
-  Truck, 
-  MapPin, 
-  Phone, 
-  Mail, 
-  CheckCircle2, 
+import {
+  ShieldCheck,
+  Settings,
+  Users,
+  Truck,
+  MapPin,
+  Phone,
+  Mail,
+  CheckCircle2,
   Award,
   Globe,
   Database,
@@ -79,26 +79,41 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-100 flex flex-col items-center py-0 md:py-12">
-      <div className="w-full max-w-7xl bg-white shadow-2xl overflow-hidden flex flex-col border-x border-slate-200">
-        
+    <div className="min-h-screen bg-slate-50 flex flex-col items-center selection:bg-brand-blue selection:text-white">
+      {/* Background Mesh */}
+      <div className="fixed inset-0 bg-mesh opacity-40 pointer-events-none z-0" />
+
+      <div className="w-full max-w-7xl bg-white shadow-[0_0_100px_-20px_rgba(0,0,0,0.1)] relative z-10 flex flex-col border-x border-slate-200">
+
         {/* Navigation */}
-        <nav className="h-20 border-b border-slate-200 flex items-center justify-between px-6 md:px-12 bg-white sticky top-0 z-50">
-          <div className="flex items-center">
-            <div className="w-10 h-10 bg-brand-navy text-white flex items-center justify-center font-black text-xl mr-3">X</div>
-            <div className="font-black text-2xl tracking-tighter text-brand-navy shrink-0">ISO-XPERT</div>
-          </div>
-          
-          <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-600">
-            <a href="#about" className="hover:text-brand-blue transition-colors">Solutions</a>
-            <a href="#services" className="hover:text-brand-blue transition-colors">ISO Registry</a>
-            <a href="#quickbooks" className="hover:text-brand-blue transition-colors">IT & QuickBooks</a>
-            <a href="#contact" className="hover:text-brand-blue transition-colors">Karachi Office</a>
+        <nav className="h-24 glass sticky top-0 z-50 flex items-center justify-between px-8 md:px-16 border-b border-slate-200">
+          <div className="flex items-center group cursor-pointer">
+            <div className="w-12 h-12 bg-brand-navy rounded-xl text-white flex items-center justify-center font-black text-2xl mr-4 shadow-lg shadow-brand-navy/20 group-hover:scale-105 transition-transform duration-300">X</div>
+            <div className="flex flex-col">
+              <span className="font-black text-2xl tracking-tight text-brand-navy leading-none">ISO-XPERT</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] text-brand-blue uppercase mt-1">Management Consultants</span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-4">
-            <a href="#contact" className="hidden lg:block text-xs font-black text-brand-blue uppercase tracking-widest border-b-2 border-brand-blue pb-1">Get Quote</a>
-            <button className="md:hidden text-brand-navy" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div className="hidden md:flex gap-10 text-[11px] font-extrabold uppercase tracking-widest text-slate-500">
+            {['Solutions', 'Registry', 'Systems', 'Contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="hover:text-brand-blue transition-all duration-300 relative group"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-blue group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-6">
+            <a href="#contact" className="hidden lg:flex items-center gap-2 text-xs font-black text-brand-blue uppercase tracking-widest group">
+              Get Quote
+              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <button className="md:hidden text-brand-navy p-2 bg-slate-100 rounded-lg" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -106,217 +121,298 @@ export default function App() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden border-b border-slate-200 bg-white p-6 flex flex-col gap-4 text-xs font-bold uppercase tracking-widest sticky top-20 z-40"
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass border-b border-slate-200 p-8 flex flex-col gap-6 text-xs font-bold uppercase tracking-widest sticky top-24 z-40"
           >
-            <a href="#about" onClick={() => setIsMenuOpen(false)}>Solutions</a>
-            <a href="#services" onClick={() => setIsMenuOpen(false)}>Certifications</a>
-            <a href="#quickbooks" onClick={() => setIsMenuOpen(false)}>Training</a>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+            {['Solutions', 'Registry', 'Systems', 'Contact'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="hover:text-brand-blue">{item}</a>
+            ))}
           </motion.div>
         )}
 
-        {/* Hero Section - Split Grid */}
+        {/* Hero Section */}
         <main className="grid grid-cols-1 md:grid-cols-12 border-b border-slate-200">
-          <section className="md:col-span-7 p-8 md:p-16 md:border-r border-slate-200 flex flex-col justify-center bg-white min-h-[500px]">
-             <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6, ease: "easeOut" }}
-               className="stat-pill"
-             >
-               Established 1997 • Karachi, Sindh
-             </motion.div>
-             <motion.h1 
-               initial={{ opacity: 0, y: 30 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-               className="text-5xl md:text-8xl font-black leading-[0.9] text-brand-navy mb-8 -tracking-[3px]"
-             >
-               Precision <br />
-               <span className="text-brand-blue">Consulting</span> <br />
-               Systems.
-             </motion.h1>
-             <motion.p 
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-               className="text-xl text-slate-500 leading-relaxed max-w-lg mb-10"
-             >
-               ISO-Xpert is Pakistan's leader in multi-disciplinary consulting, specializing in global standard models and strategic IT implementations.
-             </motion.p>
-             <motion.div 
-               initial={{ opacity: 0, y: 10 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.6, delay: 0.4 }}
-               className="flex flex-wrap gap-4"
-             >
-               <button className="accent-btn">Our Methodology</button>
-               <button className="secondary-btn">Karachi HQ</button>
-             </motion.div>
+          <section className="md:col-span-8 p-10 md:p-24 md:border-r border-slate-200 flex flex-col justify-center bg-white relative overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/5 rounded-full blur-3xl -mr-32 -mt-32" />
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="stat-pill"
+            >
+              <History size={12} className="mr-2" />
+              Established 1997 • Trusted globally
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-6xl md:text-[7rem] font-black leading-[0.85] text-brand-navy mb-10 -tracking-[4px]"
+            >
+              Engineered <br />
+              <span className="text-gradient">Integrity</span> <br />
+              Systems.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl text-slate-500 leading-relaxed max-w-xl mb-12 font-medium"
+            >
+              ISO-Xpert is Pakistan's premier multi-disciplinary consultancy, bridging the gap between global standard compliance and strategic operational excellence.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap gap-6"
+            >
+              <button className="accent-btn shadow-2xl">Explore Services</button>
+              <button className="secondary-btn">Our Portfolio</button>
+            </motion.div>
           </section>
 
-          <section className="md:col-span-5 bg-slate-50 relative min-h-[400px] flex flex-col">
-             <div className="flex-1 p-12 flex flex-col justify-center">
-                <div className="grid grid-cols-2 gap-px bg-slate-200 border border-slate-200">
-                   {SERVICES.map((s, i) => (
-                     <motion.div 
-                        key={s.title} 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.5 + (i * 0.1) }}
-                        className="bg-white p-6 h-32 flex flex-col justify-center hover:bg-slate-50 transition-colors group"
-                     >
-                        <s.icon size={16} className="text-brand-blue mb-2 group-hover:scale-110 transition-transform" />
-                        <div className="font-black text-xs text-brand-navy tracking-tight">{s.title.toUpperCase()}</div>
-                     </motion.div>
-                   ))}
-                </div>
-             </div>
-             <div className="h-20 border-t border-slate-200 bg-white flex items-center px-12 justify-between">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 size={16} className="text-brand-blue" />
-                  <span className="text-[10px] font-black uppercase text-slate-400">Verified Firm</span>
-                </div>
-                <div className="text-[10px] font-black uppercase text-brand-navy">PK-75300</div>
-             </div>
+          <section className="md:col-span-4 bg-slate-50/50 p-12 flex flex-col justify-between border-t md:border-t-0 border-slate-200">
+            <div className="space-y-4">
+              <h3 className="text-xs font-black text-brand-blue uppercase tracking-[0.2em] mb-8 flex items-center gap-2">
+                <Globe size={14} /> Core Verticals
+              </h3>
+              <div className="grid grid-cols-1 gap-4">
+                {SERVICES.map((s, i) => (
+                  <motion.div
+                    key={s.title}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + (i * 0.1) }}
+                    className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-blue hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-500 group"
+                  >
+                    <div className={`w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
+                      <s.icon size={20} className="text-brand-navy group-hover:text-brand-blue transition-colors" />
+                    </div>
+                    <div className="font-extrabold text-sm text-brand-navy tracking-tight mb-2">{s.title}</div>
+                    <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{s.description.split(' ')[0]} Specialist</div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-slate-200 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+                <span className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Live in Karachi</span>
+              </div>
+              <div className="text-[11px] font-black text-brand-navy">PK REG: 75300</div>
+            </div>
           </section>
         </main>
 
-        {/* Detailed Consultancy Grid */}
-        <section id="services" className="grid grid-cols-1 md:grid-cols-4 border-b border-slate-200">
-           <div className="md:col-span-1 p-12 md:border-r border-slate-200 bg-slate-50">
-              <h2 className="text-3xl font-black text-brand-navy leading-none -tracking-wider mb-6">ISO REGISTRY</h2>
-              <p className="text-sm text-slate-500 leading-relaxed font-bold">Standard certifications across all manufacturing and service sectors.</p>
-           </div>
-           <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Trusted By Section */}
+        <section className="py-12 border-b border-slate-200 bg-white overflow-hidden">
+          <div className="container mx-auto px-12">
+            <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-10">Strategic Partners & Clients</p>
+            <div className="flex flex-wrap justify-center items-center gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+              {['Indus Textiles', 'Sindh Logistics', 'Karachi Mfg', 'Global Standards', 'Vanguard Tea'].map(c => (
+                <span key={c} className="text-xl font-display font-black text-brand-navy tracking-tighter uppercase">{c}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Registry & ISO Grid */}
+        <section id="registry" className="grid grid-cols-1 md:grid-cols-4 border-b border-slate-200">
+          <div className="md:col-span-1 p-16 md:border-r border-slate-200 bg-slate-50 flex flex-col justify-center">
+            <h2 className="text-4xl font-black text-brand-navy leading-[0.9] -tracking-wider mb-8">COMPLIANCE <br />REGISTRY.</h2>
+            <p className="text-sm text-slate-500 leading-relaxed font-bold max-w-[200px]">We provide end-to-end certification support for global benchmarks.</p>
+          </div>
+          <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "ISO 9001", desc: "Quality Management Systems", color: "blue" },
+              { title: "ISO 14001", desc: "Environmental Excellence", color: "emerald" },
+              { title: "ISO 27001", desc: "Information Security", color: "indigo" },
+              { title: "ISO 22000", desc: "Food Safety Standards", color: "orange" },
+              { title: "SA 8000", desc: "Social Accountability", color: "rose" },
+              { title: "HACCP", desc: "Hazard Analysis Controls", color: "amber" }
+            ].map((item, i) => (
+              <div key={i} className="service-card-geo group">
+                <div className="w-12 h-1 bg-slate-100 mb-8 group-hover:w-full group-hover:bg-brand-blue transition-all duration-700" />
+                <div className="text-3xl font-black mb-2 text-brand-navy transition-transform duration-300 group-hover:-translate-y-1">{item.title}</div>
+                <div className="text-[11px] font-extrabold uppercase tracking-[0.15em] text-slate-400 group-hover:text-brand-blue mb-8">{item.desc}</div>
+                <div className="mt-auto flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                  <span className="text-[10px] font-black text-brand-blue uppercase">Learn Protocol</span>
+                  <ChevronRight size={12} className="text-brand-blue" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* QuickBooks & Systems - Modern Dark Section */}
+        <section id="systems" className="grid grid-cols-1 md:grid-cols-12 border-b border-slate-200">
+          <div className="md:col-span-6 bg-brand-navy text-white p-12 md:p-24 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(59,130,246,0.15),transparent_70%)]" />
+            <div className="relative z-10">
+              <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-brand-blue mb-10 border border-white/10">Authorized Integration Partner</div>
+              <h2 className="text-5xl md:text-7xl font-black mb-10 leading-[0.9] -tracking-[3px]">Systems <br />Digitization.</h2>
+              <p className="text-xl text-slate-400 max-w-md mb-12 font-medium">Revolutionizing financial audits and inventory management with QuickBooks Enterprise and Sage ACT! deployments.</p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {["Real-time Audits", "Supply Chain Control", "CRM Pipelines", "Executive Training"].map(f => (
+                  <div key={f} className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-300">
+                    <div className="w-6 h-px bg-brand-blue" />
+                    {f}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-6 p-12 md:p-24 bg-slate-100/50 flex flex-col justify-center">
+            <div className="grid grid-cols-2 gap-px bg-slate-200 border border-slate-200 rounded-3xl overflow-hidden shadow-2xl shadow-brand-navy/5">
               {[
-                { title: "ISO 9000", desc: "Quality Management Sytems" },
-                { title: "ISO 14000", desc: "Environmental Excellence" },
-                { title: "ISO 27000", desc: "Information Security" },
-                { title: "ISO 22000", desc: "Food Safety Standards" },
-                { title: "SA 8000", desc: "Social Responsibility" },
-                { title: "HACCP", desc: "Hazard Analysis Controls" }
-              ].map((item, i) => (
-                <div key={i} className="p-10 border-b border-r border-slate-200 last:border-r-0 hover:bg-brand-blue hover:text-white transition-all group">
-                   <div className="text-2xl font-black mb-1 leading-none group-hover:translate-y-[-2px] transition-transform">{item.title}</div>
-                   <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-blue-100">{item.desc}</div>
+                { icon: Database, name: "Storage", val: "Enterprise" },
+                { icon: Calculator, name: "Ledger", val: "High-Perf" },
+                { icon: ShieldCheck, name: "Secured", val: "Tier 1" },
+                { icon: Users, name: "Users", val: "Unlimited" }
+              ].map((box, i) => (
+                <div key={i} className="bg-white p-10 flex flex-col items-center text-center hover:bg-slate-50 transition-colors">
+                  <box.icon className="text-brand-blue mb-4" size={24} />
+                  <div className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{box.name}</div>
+                  <div className="text-xs font-black text-brand-navy uppercase">{box.val}</div>
                 </div>
               ))}
-           </div>
+            </div>
+          </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="testimonials" className="grid grid-cols-1 md:grid-cols-12 border-b border-slate-200 bg-white">
-           <div className="md:col-span-3 p-12 md:border-r border-slate-200">
-              <h2 className="text-3xl font-black text-brand-navy leading-none -tracking-wider mb-6 uppercase">Client <br />Impact</h2>
-              <p className="text-[11px] font-black uppercase tracking-widest text-slate-400">Success Stories across Pakistan's Industry</p>
-           </div>
-           <div className="md:col-span-9 grid grid-cols-1 md:grid-cols-3 border-t md:border-t-0 border-slate-200">
+        {/* Testimonials */}
+        <section className="bg-white border-b border-slate-200 px-12 md:px-24 py-24">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-black text-brand-navy text-center mb-20 -tracking-[2px]">Trusted results for the <span className="text-brand-blue italic font-serif">Frontier Economy.</span></h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {TESTIMONIALS.map((t, i) => (
-                <div key={i} className="p-10 border-r border-slate-200 last:border-r-0 group hover:bg-slate-50 transition-colors">
-                   <div className="text-brand-blue mb-6 text-sm">
-                      {[1, 2, 3, 4, 5].map(star => (
-                        <span key={star}>★</span>
-                      ))}
-                   </div>
-                   <p className="text-sm font-bold text-slate-600 leading-relaxed mb-8 italic">"{t.quote}"</p>
-                   <div className="border-l-2 border-brand-navy pl-4">
-                      <div className="text-xs font-black text-brand-navy uppercase tracking-widest">{t.name}</div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-brand-blue">{t.company}</div>
-                   </div>
-                </div>
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -5 }}
+                  className="flex flex-col"
+                >
+                  <div className="text-brand-blue text-sm mb-6 flex gap-1">
+                    {[1, 2, 3, 4, 5].map(star => <span key={star}>★</span>)}
+                  </div>
+                  <p className="text-sm font-semibold text-slate-600 leading-relaxed mb-8">"{t.quote}"</p>
+                  <div className="mt-auto border-t border-slate-100 pt-6">
+                    <div className="text-xs font-black text-brand-navy uppercase tracking-widest mb-1">{t.name}</div>
+                    <div className="text-[10px] font-bold text-brand-blue uppercase tracking-wider">{t.company}</div>
+                  </div>
+                </motion.div>
               ))}
-           </div>
+            </div>
+          </div>
         </section>
 
-        {/* IT & QuickBooks Section */}
-        <section id="quickbooks" className="grid grid-cols-1 md:grid-cols-2 border-b border-slate-200 bg-brand-navy text-white">
-           <div className="p-16 md:border-r border-white/10 flex flex-col justify-center">
-              <div className="stat-pill bg-white/10 text-white mb-8">Authorized implementation</div>
-              <h2 className="text-5xl font-black mb-8 leading-none -tracking-wider">QuickBooks <br />Consulting</h2>
-              <p className="text-lg text-slate-400 max-w-sm mb-12">Expert deployment and training for QuickBooks Enterprise and Sage ACT! CRM systems.</p>
-              <div className="space-y-4">
-                 {["Financial Audit Integration", "Inventory Management", "Custom CRM Pipelines", "Karachi Training Sessions"].map(f => (
-                   <div key={f} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest">
-                      <div className="w-2 h-2 bg-brand-blue" />
-                      {f}
-                   </div>
-                 ))}
-              </div>
-           </div>
-           <div className="bg-white/5 p-16 flex items-center justify-center relative overflow-hidden">
-              <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
-                 <div className="bg-white/10 p-8 text-center border border-white/20">
-                    <Database className="mx-auto mb-4 text-brand-blue" />
-                    <div className="text-[10px] font-black uppercase tracking-widest">Database</div>
-                 </div>
-                 <div className="bg-white/10 p-8 text-center border border-white/20">
-                    <Calculator className="mx-auto mb-4 text-brand-blue" />
-                    <div className="text-[10px] font-black uppercase tracking-widest">Ledger</div>
-                 </div>
-                 <div className="bg-white/10 p-8 text-center border border-white/20">
-                    <ShieldCheck className="mx-auto mb-4 text-brand-blue" />
-                    <div className="text-[10px] font-black uppercase tracking-widest">Security</div>
-                 </div>
-                 <div className="bg-white/10 p-8 text-center border border-white/20">
-                    <Settings className="mx-auto mb-4 text-brand-blue" />
-                    <div className="text-[10px] font-black uppercase tracking-widest">Ops</div>
-                 </div>
-              </div>
-           </div>
-        </section>
-
-        {/* Contact Form Section */}
+        {/* Contact Form */}
         <section id="contact" className="grid grid-cols-1 md:grid-cols-12 border-b border-slate-200">
-           <div className="md:col-span-5 p-16 md:border-r border-slate-200 bg-slate-50">
-              <h2 className="text-4xl font-black text-brand-navy mb-8 -tracking-wider leading-none">INITIATE <br />INQUIRY.</h2>
-              <div className="space-y-12">
-                 <div className="border-l-4 border-brand-blue pl-6">
-                    <div className="text-[10px] font-black uppercase tracking-[2px] text-slate-400 mb-2">Primary Service Office</div>
-                    <div className="font-black text-brand-navy text-lg leading-tight uppercase tracking-tighter">D-32, Block-7, Gulshan-e-Iqbal, Karachi</div>
-                 </div>
-                 <div className="border-l-4 border-slate-200 pl-6">
-                    <div className="text-[10px] font-black uppercase tracking-[2px] text-slate-400 mb-2">Direct Communications</div>
-                    <div className="font-black text-brand-navy text-xl leading-none">+92-21-34973150</div>
-                 </div>
+          <div className="md:col-span-5 p-12 md:p-24 md:border-r border-slate-200 bg-slate-50/50">
+            <h2 className="text-5xl md:text-6xl font-black text-brand-navy mb-12 -tracking-[2px] leading-[0.9]">PRECISION <br />INQUIRY.</h2>
+            <div className="space-y-12">
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-xl bg-brand-navy flex items-center justify-center shrink-0">
+                  <MapPin className="text-white" size={20} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-[2px] text-slate-400 mb-2">Karachi Headquarters</div>
+                  <div className="font-extrabold text-brand-navy text-lg leading-tight uppercase">D-32, Block-7, Gulshan-e-Iqbal, Sindh</div>
+                </div>
               </div>
-           </div>
-           
-           <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center bg-white">
-              <form className="space-y-8">
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                       <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Organization Name</label>
-                       <input className="w-full border-b-2 border-slate-200 focus:border-brand-blue outline-none py-3 text-sm font-bold placeholder:text-slate-300" placeholder="ENTER COMPANY..." />
-                    </div>
-                    <div>
-                       <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Service Required</label>
-                       <input className="w-full border-b-2 border-slate-200 focus:border-brand-blue outline-none py-3 text-sm font-bold placeholder:text-slate-300" placeholder="ISO / QUICKBOOKS..." />
-                    </div>
-                 </div>
-                 <div>
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Business Email</label>
-                    <input className="w-full border-b-2 border-slate-200 focus:border-brand-blue outline-none py-3 text-sm font-bold placeholder:text-slate-300" placeholder="NAME@ORGANIZATION.PK" />
-                 </div>
-                 <button className="accent-btn w-full flex items-center justify-center gap-4">
-                    Send Inquiry Record <ChevronRight size={16} />
-                 </button>
-              </form>
-           </div>
+              <div className="flex gap-6">
+                <div className="w-12 h-12 rounded-xl bg-brand-blue flex items-center justify-center shrink-0">
+                  <Phone className="text-white" size={20} />
+                </div>
+                <div>
+                  <div className="text-[10px] font-black uppercase tracking-[2px] text-slate-400 mb-2">Direct Intelligence Line</div>
+                  <div className="font-extrabold text-brand-navy text-xl leading-none">+92-21-34973150</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-7 p-12 md:p-24 flex flex-col justify-center bg-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-[100px] -mr-48 -mt-48" />
+            <form className="relative z-10 space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-3">Target Organization</label>
+                  <input className="input-field" placeholder="COMPANY NAME..." />
+                </div>
+                <div>
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-3">Service Scope</label>
+                  <select className="input-field appearance-none cursor-pointer">
+                    <option>ISO CERTIFICATION</option>
+                    <option>QUICKBOOKS TRAINING</option>
+                    <option>IT CONSULTANCY</option>
+                    <option>SOCIAL AUDIT</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-3">Enterprise Email</label>
+                <input className="input-field" placeholder="NAME@ORGANIZATION.PK" />
+              </div>
+              <div>
+                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-3">Situation Brief</label>
+                <textarea className="input-field min-h-[100px] py-4" placeholder="HOW CAN WE ASSIST YOUR COMPLIANCE GOALS?"></textarea>
+              </div>
+              <button className="accent-btn w-full flex items-center justify-center gap-4 py-6 group">
+                DISPATCH CONSULTANCY REQUEST
+                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
+          </div>
         </section>
 
         {/* Footer */}
-        <footer className="h-16 bg-brand-navy text-white px-12 flex items-center justify-between">
-          <div className="text-[10px] uppercase font-bold tracking-[2px] opacity-70">
-            ISO-Xpert Management & IT Consultants © {new Date().getFullYear()}
+        <footer className="bg-brand-navy text-white">
+          <div className="px-12 md:px-24 py-20 grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div className="md:col-span-2">
+              <div className="flex items-center mb-8">
+                <div className="w-10 h-10 bg-white text-brand-navy rounded-lg flex items-center justify-center font-black text-xl mr-4">X</div>
+                <span className="font-black text-3xl tracking-tighter">ISO-XPERT</span>
+              </div>
+              <p className="text-slate-400 text-sm max-w-sm leading-relaxed font-medium">
+                Leader in multi-disciplinary management consulting since 1997. We empower Pakistan's industrial backbone with global compliance standards and robust IT solutions.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-blue mb-8">Navigation</h4>
+              <div className="flex flex-col gap-4 text-xs font-bold text-slate-300 uppercase tracking-widest">
+                <a href="#solutions" className="hover:text-white transition-colors">Solutions</a>
+                <a href="#registry" className="hover:text-white transition-colors">ISO Registry</a>
+                <a href="#systems" className="hover:text-white transition-colors">Systems</a>
+                <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+              </div>
+            </div>
+            <div>
+              <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-blue mb-8">Contact</h4>
+              <div className="flex flex-col gap-4 text-xs font-bold text-slate-300 uppercase tracking-widest">
+                <div className="flex items-center gap-3"><Mail size={14} className="text-brand-blue" /> info@iso-xpert.com</div>
+                <div className="flex items-center gap-3"><Phone size={14} className="text-brand-blue" /> +92-21-34973150</div>
+              </div>
+            </div>
           </div>
-          <div className="hidden md:flex gap-8 text-[9px] uppercase font-black tracking-[2px] opacity-50">
-            <span>SINDH</span>
-            <span>-</span>
-            <span>PAKISTAN</span>
+          <div className="h-24 border-t border-white/5 px-12 md:px-24 flex items-center justify-between">
+            <div className="text-[10px] uppercase font-bold tracking-[2px] opacity-40">
+              © {new Date().getFullYear()} ISO-XPERT MANAGEMENT & IT CONSULTANTS
+            </div>
+            <div className="flex gap-8 text-[9px] uppercase font-black tracking-[2px] opacity-30">
+              <span>DEVELOPED FOR EXCELLENCE</span>
+            </div>
           </div>
         </footer>
 
