@@ -13,7 +13,7 @@
 
   <!-- Primary SEO -->
   <title>ISOXPERT — AI-Powered Compliance, Inspection, QC &amp; Audit Platform</title>
-  <meta name="description" content="ISOXPERT is a unified, AI-powered ecosystem for governance, risk, compliance, inspection, quality control and certification audits. One platform for ISO 9001, 14001, 45001, 27001, 22301 and more." />
+  <meta name="description" content="ISOXPERT is a unified, AI-powered ecosystem for governance, risk, compliance, inspection, quality control and certification audits. Built on a management consultancy heritage since 1997. One platform for ISO 9001, 14001, 45001, 27001, 22301 and more." />
   <meta name="keywords" content="ISOXPERT, ISO compliance software, GRC platform, AI compliance, ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 22301, inspection management, quality control software, audit management, ISO certification" />
   <meta name="author" content="ISOXPERT" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -227,6 +227,20 @@
     .feature h4 { font-size: 16px; color: var(--navy); margin-bottom: 6px; }
     .feature p { font-size: 14px; color: var(--slate); }
 
+    /* ---------- About / heritage ---------- */
+    .about-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 52px; align-items: center; }
+    .about-grid .a-kicker { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); }
+    .about-grid h2 { font-size: clamp(26px, 3.2vw, 36px); color: var(--navy); letter-spacing: -1px; margin: 12px 0 18px; line-height: 1.12; }
+    .about-grid p { color: var(--slate); font-size: 16px; margin-bottom: 16px; }
+    .about-grid p b { color: var(--navy); font-weight: 700; }
+    .heritage { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .h-card { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: #fff; transition: border-color .2s, transform .2s; }
+    .h-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .h-card b { display: block; font-family: var(--font-head); font-size: 20px; color: var(--navy); margin-bottom: 4px; }
+    .h-card span { font-size: 13px; color: var(--muted); }
+    @media (max-width: 980px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
+    @media (max-width: 460px) { .heritage { grid-template-columns: 1fr; } }
+
     /* ---------- Standards ---------- */
     .standards { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .chip {
@@ -313,6 +327,7 @@
       <nav class="nav-links" id="navLinks">
         <a href="#ecosystem">Ecosystem</a>
         <a href="#features">Why ISOXPERT</a>
+        <a href="#about">About</a>
         <a href="#standards">Standards</a>
         <a href="https://compliance.isoxpert.com" rel="noopener">Compliance</a>
         <a href="https://inspect360suite.com" rel="noopener">Inspection</a>
@@ -480,8 +495,29 @@
     </div>
   </section>
 
+  <!-- ===== About / Heritage ===== -->
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <div class="a-kicker">About Us</div>
+          <h2>Compliance expertise since 1997 — now AI-powered.</h2>
+          <p>ISOXPERT grew out of a <b>multi-disciplinary management &amp; IT consultancy founded in 1997 in Karachi, Pakistan</b>. For more than two decades we've guided manufacturers, exporters and service organisations through certification and compliance — work that demanded precision, deep standards knowledge and a genuine partnership with every client.</p>
+          <p>That hands-on heritage spans <b>ISO 9001, 14001, 27001 and 22000</b>, social-accountability standards like <b>SA 8000, WRAP and BSCI</b>, supply-chain security frameworks such as <b>C-TPAT and BRC</b>, product certification including <b>CE marking</b>, and systems digitisation with <b>QuickBooks and Sage ACT!</b>.</p>
+          <p>Today we put that same consulting expertise into an AI-powered platform — so compliance is faster, smarter and audit-ready for every organisation.</p>
+        </div>
+        <div class="heritage">
+          <div class="h-card"><b>Est. 1997</b><span>25+ years of compliance consulting</span></div>
+          <div class="h-card"><b>Karachi, PK</b><span>Serving industry locally &amp; globally</span></div>
+          <div class="h-card"><b>Multi-discipline</b><span>ISO, social, supply-chain &amp; product certification</span></div>
+          <div class="h-card"><b>Systems &amp; IT</b><span>QuickBooks &amp; Sage implementation heritage</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Standards ===== -->
-  <section class="sec" id="standards">
+  <section class="sec features-sec" id="standards">
     <div class="wrap">
       <div class="sec-head">
         <div class="kicker">Multi-Standard. One Platform.</div>
@@ -522,7 +558,7 @@
             <svg aria-hidden="true"><use href="#x-mark"/></svg>
             <span class="word"><span class="iso">ISO</span><span class="xpert">XPERT</span></span>
           </a>
-          <p class="about">Digital excellence for compliance, quality &amp; certification. An AI-powered ecosystem empowering organisations to achieve excellence.</p>
+          <p class="about">Digital excellence for compliance, quality &amp; certification. Built on a management &amp; IT consultancy heritage since 1997 — now an AI-powered ecosystem empowering organisations to achieve excellence.</p>
         </div>
         <div>
           <h5>Platform</h5>
@@ -536,6 +572,7 @@
         <div>
           <h5>Company</h5>
           <ul>
+            <li><a href="#about">About Us</a></li>
             <li><a href="#features">Why ISOXPERT</a></li>
             <li><a href="#standards">Standards</a></li>
             <li><a href="#ecosystem">Ecosystem</a></li>
