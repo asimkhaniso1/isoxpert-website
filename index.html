@@ -278,14 +278,28 @@
     .btn-outline-light:hover { background: rgba(255,255,255,.1); }
 
     /* ---------- Contact ---------- */
-    .contact-band { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 26px; padding: 48px; }
+    .contact-band { display: grid; grid-template-columns: 1fr 1.05fr; gap: 44px; align-items: start; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 26px; padding: 44px; }
     .contact-band .kicker { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); }
     .contact-band h2 { font-size: clamp(26px, 3.2vw, 36px); color: var(--navy); letter-spacing: -1px; margin: 12px 0 10px; line-height: 1.12; }
-    .contact-band p { color: var(--slate); font-size: 16px; }
-    .contact-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-    .contact-email { font-family: var(--font-head); font-weight: 700; font-size: clamp(19px, 2.2vw, 24px); color: var(--blue); text-decoration: none; word-break: break-all; }
+    .contact-band p { color: var(--slate); font-size: 16px; margin-bottom: 18px; }
+    .contact-email { font-family: var(--font-head); font-weight: 700; font-size: clamp(17px, 2vw, 21px); color: var(--blue); text-decoration: none; word-break: break-all; }
     .contact-email:hover { text-decoration: underline; text-underline-offset: 3px; }
-    @media (max-width: 860px) { .contact-band { grid-template-columns: 1fr; padding: 36px 26px; } }
+
+    .demo-form { display: flex; flex-direction: column; gap: 13px; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+    .demo-form .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .demo-form .field { display: flex; flex-direction: column; gap: 5px; }
+    .demo-form label { font-size: 12px; font-weight: 700; color: var(--navy); }
+    .demo-form input, .demo-form select, .demo-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 14px; background: #fff; color: var(--ink); outline: none; transition: border-color .2s; }
+    .demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus { border-color: var(--blue); }
+    .demo-form textarea { resize: vertical; }
+    .demo-form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .demo-form button { margin-top: 4px; justify-content: center; }
+    .demo-form button:disabled { opacity: .6; cursor: default; }
+    .form-status { font-size: 13.5px; font-weight: 600; margin: 0; }
+    .form-status.ok { color: var(--green); }
+    .form-status.err { color: #dc2626; }
+    @media (max-width: 860px) { .contact-band { grid-template-columns: 1fr; padding: 32px 24px; } }
+    @media (max-width: 520px) { .demo-form .frow { grid-template-columns: 1fr; } }
 
     /* ---------- Footer ---------- */
     footer { background: var(--navy); color: #cdd9f0; padding: 60px 0 28px; }
@@ -556,14 +570,71 @@
     <div class="wrap">
       <div class="contact-band">
         <div>
-          <div class="kicker">Get in touch</div>
-          <h2>Let's talk about your compliance.</h2>
-          <p>Ready for a demo, or have a question about the platform? Our team at Company Certification International is here to help.</p>
-        </div>
-        <div class="contact-actions">
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com&su=ISOXPERT%20demo%20request" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Book a demo</a>
+          <div class="kicker">Book a demo</div>
+          <h2>See ISOXPERT in action.</h2>
+          <p>Pick a preferred date and time slot and tell us about your needs — our team at Company Certification International will confirm your demo by email.</p>
+          <p style="margin-bottom:6px;font-size:14px">Prefer email? Reach us directly:</p>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" class="contact-email">info@companycertification.com</a>
         </div>
+
+        <form class="demo-form" id="demoForm" novalidate>
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New ISOXPERT demo request" />
+          <input type="hidden" name="from_name" value="ISOXPERT Website" />
+          <input type="checkbox" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="frow">
+            <div class="field">
+              <label for="df-name">Full name*</label>
+              <input id="df-name" name="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="df-email">Work email*</label>
+              <input id="df-email" type="email" name="email" required placeholder="you@company.com" />
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="df-company">Company</label>
+              <input id="df-company" name="company" placeholder="Company name" />
+            </div>
+            <div class="field">
+              <label for="df-product">Product of interest</label>
+              <select id="df-product" name="product">
+                <option>Compliance360</option>
+                <option>Inspection360</option>
+                <option>QC360</option>
+                <option>Audit360</option>
+                <option>The full platform</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="df-date">Preferred date</label>
+              <input id="df-date" type="date" name="preferred_date" />
+            </div>
+            <div class="field">
+              <label for="df-time">Preferred time slot</label>
+              <select id="df-time" name="preferred_time">
+                <option value="">Any time</option>
+                <option>Morning (9am–12pm)</option>
+                <option>Midday (12pm–3pm)</option>
+                <option>Afternoon (3pm–6pm)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="df-msg">Message</label>
+            <textarea id="df-msg" name="message" rows="3" placeholder="Tell us about your compliance needs (optional)"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="demoSubmit">Request demo</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -631,6 +702,51 @@
     });
     // Current year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Demo request form (Web3Forms)
+    (function () {
+      var f = document.getElementById('demoForm');
+      if (!f) return;
+      var status = document.getElementById('formStatus');
+      var btn = document.getElementById('demoSubmit');
+      // Prevent past dates
+      var dateEl = document.getElementById('df-date');
+      if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
+
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        status.textContent = ''; status.className = 'form-status';
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        var key = f.querySelector('[name=access_key]').value;
+        if (key.indexOf('YOUR_') === 0) {
+          status.textContent = 'Booking form is not configured yet. Please email info@companycertification.com.';
+          status.className = 'form-status err';
+          return;
+        }
+        var original = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Sending…';
+        var data = Object.fromEntries(new FormData(f).entries());
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json(); }).then(function (j) {
+          if (j.success) {
+            status.textContent = 'Thank you! Your demo request has been sent — we will confirm your slot by email shortly.';
+            status.className = 'form-status ok';
+            f.reset();
+          } else {
+            status.textContent = 'Sorry, something went wrong. Please email info@companycertification.com.';
+            status.className = 'form-status err';
+          }
+        }).catch(function () {
+          status.textContent = 'Network error. Please email info@companycertification.com.';
+          status.className = 'form-status err';
+        }).finally(function () {
+          btn.disabled = false; btn.textContent = original;
+        });
+      });
+    })();
   </script>
 </body>
 </html>
