@@ -277,6 +277,16 @@
     .btn-outline-light { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
     .btn-outline-light:hover { background: rgba(255,255,255,.1); }
 
+    /* ---------- Contact ---------- */
+    .contact-band { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 26px; padding: 48px; }
+    .contact-band .kicker { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); }
+    .contact-band h2 { font-size: clamp(26px, 3.2vw, 36px); color: var(--navy); letter-spacing: -1px; margin: 12px 0 10px; line-height: 1.12; }
+    .contact-band p { color: var(--slate); font-size: 16px; }
+    .contact-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+    .contact-email { font-family: var(--font-head); font-weight: 700; font-size: clamp(19px, 2.2vw, 24px); color: var(--blue); text-decoration: none; word-break: break-all; }
+    .contact-email:hover { text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 860px) { .contact-band { grid-template-columns: 1fr; padding: 36px 26px; } }
+
     /* ---------- Footer ---------- */
     footer { background: var(--navy); color: #cdd9f0; padding: 60px 0 28px; }
     .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
@@ -321,7 +331,7 @@
         <a href="#about">About</a>
         <a href="#standards">Standards</a>
         <a href="https://compliance.isoxpert.com" target="_blank" rel="noopener noreferrer">Compliance360</a>
-        <a href="mailto:info@companycertification.com">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
       <a href="#ecosystem" class="btn btn-primary nav-cta">Explore Platform</a>
       <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
@@ -536,6 +546,23 @@
         <div class="hero-cta">
           <a href="https://compliance.isoxpert.com" class="btn btn-white" target="_blank" rel="noopener noreferrer">Launch Compliance</a>
           <a href="https://inspect360suite.com" class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">Launch Inspection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="sec" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <div class="kicker">Get in touch</div>
+          <h2>Let's talk about your compliance.</h2>
+          <p>Ready for a demo, or have a question about the platform? Our team at Company Certification International is here to help.</p>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:info@companycertification.com?subject=ISOXPERT%20demo%20request" class="btn btn-primary">Book a demo</a>
+          <a href="mailto:info@companycertification.com" class="contact-email">info@companycertification.com</a>
         </div>
       </div>
     </div>
