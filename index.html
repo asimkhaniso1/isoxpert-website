@@ -292,6 +292,10 @@
     .demo-form input, .demo-form select, .demo-form textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 14px; background: #fff; color: var(--ink); outline: none; transition: border-color .2s; }
     .demo-form input:focus, .demo-form select:focus, .demo-form textarea:focus { border-color: var(--blue); }
     .demo-form textarea { resize: vertical; }
+    .demo-form .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .demo-form .chk { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--ink); cursor: pointer; border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; transition: border-color .2s, background .2s; }
+    .demo-form .chk input { width: auto; margin: 0; accent-color: var(--blue); }
+    .demo-form .chk:has(input:checked) { border-color: var(--blue); background: rgba(37,99,235,.07); }
     .demo-form .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
     .demo-form button { margin-top: 4px; justify-content: center; }
     .demo-form button:disabled { opacity: .6; cursor: default; }
@@ -299,7 +303,7 @@
     .form-status.ok { color: var(--green); }
     .form-status.err { color: #dc2626; }
     @media (max-width: 860px) { .contact-band { grid-template-columns: 1fr; padding: 32px 24px; } }
-    @media (max-width: 520px) { .demo-form .frow { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .demo-form .frow, .demo-form .checks { grid-template-columns: 1fr; } }
 
     /* ---------- Footer ---------- */
     footer { background: var(--navy); color: #cdd9f0; padding: 60px 0 28px; }
@@ -594,20 +598,18 @@
             </div>
           </div>
 
-          <div class="frow">
-            <div class="field">
-              <label for="df-company">Company</label>
-              <input id="df-company" name="company" placeholder="Company name" />
-            </div>
-            <div class="field">
-              <label for="df-product">Product of interest</label>
-              <select id="df-product" name="product">
-                <option>Compliance360</option>
-                <option>Inspection360</option>
-                <option>QC360</option>
-                <option>Audit360</option>
-                <option>The full platform</option>
-              </select>
+          <div class="field">
+            <label for="df-company">Company</label>
+            <input id="df-company" name="company" placeholder="Company name" />
+          </div>
+
+          <div class="field">
+            <label>Which product demo?* <span id="df-prodhint" style="font-weight:500;color:var(--muted)">(select one or more)</span></label>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="products" value="Compliance360" /> Compliance360</label>
+              <label class="chk"><input type="checkbox" name="products" value="Inspection360" /> Inspection360</label>
+              <label class="chk"><input type="checkbox" name="products" value="QC360" /> QC360</label>
+              <label class="chk"><input type="checkbox" name="products" value="Audit360" /> Audit360</label>
             </div>
           </div>
 
@@ -709,6 +711,7 @@
       if (!f) return;
       var status = document.getElementById('formStatus');
       var btn = document.getElementById('demoSubmit');
+      var loadedAt = Date.now();
       // Prevent past dates
       var dateEl = document.getElementById('df-date');
       if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
@@ -716,7 +719,28 @@
       f.addEventListener('submit', function (e) {
         e.preventDefault();
         status.textContent = ''; status.className = 'form-status';
+
+        // Spam protection: honeypot — bots fill hidden fields
+        if (f.querySelector('[name=botcheck]').checked) return;
+        // Spam protection: time trap — bots submit almost instantly
+        if (Date.now() - loadedAt < 3000) {
+          status.textContent = 'Please take a moment to complete the form before submitting.';
+          status.className = 'form-status err';
+          return;
+        }
+
         if (!f.checkValidity()) { f.reportValidity(); return; }
+
+        // Require at least one product for the demo
+        var products = Array.prototype.slice
+          .call(f.querySelectorAll('input[name=products]:checked'))
+          .map(function (x) { return x.value; });
+        if (products.length === 0) {
+          status.textContent = 'Please select at least one product for your demo.';
+          status.className = 'form-status err';
+          return;
+        }
+
         var key = f.querySelector('[name=access_key]').value;
         if (key.indexOf('YOUR_') === 0) {
           status.textContent = 'Booking form is not configured yet. Please email info@companycertification.com.';
@@ -726,6 +750,7 @@
         var original = btn.textContent;
         btn.disabled = true; btn.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
+        data.products = products.join(', ');
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
