@@ -59,9 +59,28 @@
       "name": "Company Certification International",
       "url": "https://companycertification.com/"
     },
+    "location": [
+      { "@type": "Place", "name": "Dallas, USA", "address": { "@type": "PostalAddress", "addressLocality": "Dallas", "addressRegion": "TX", "addressCountry": "US" } },
+      { "@type": "Place", "name": "London, UK", "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" } },
+      { "@type": "Place", "name": "Muscat, Oman", "address": { "@type": "PostalAddress", "addressLocality": "Muscat", "addressCountry": "OM" } },
+      { "@type": "Place", "name": "Karachi, Pakistan", "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" } }
+    ],
+    "areaServed": ["United States", "United Kingdom", "Oman", "Pakistan", "Worldwide"],
     "sameAs": [
       "https://compliance.isoxpert.com",
       "https://inspect360suite.com"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is ISOXPERT?", "acceptedAnswer": { "@type": "Answer", "text": "ISOXPERT is an AI-powered ecosystem of four connected apps — Compliance360, Inspection360, QC360 and Audit360 — for governance, risk, compliance, inspection, quality control and certification audits. It is the digital wing of Company Certification International, an accredited certification body operating since 1997." } },
+      { "@type": "Question", "name": "Which ISO standards does ISOXPERT support?", "acceptedAnswer": { "@type": "Answer", "text": "ISOXPERT supports the leading ISO management system standards including ISO 9001 (quality), ISO 14001 (environment), ISO 45001 (health & safety), ISO 27001 (information security), ISO 22000 (food safety) and ISO 22301 (business continuity), plus social-accountability, supply-chain and product certification schemes." } },
+      { "@type": "Question", "name": "Is Company Certification International an accredited certification body?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Company Certification International (CCI) is a certification body and audit organisation that has issued certificates to companies across manufacturing, trading and services since 1997. ISOXPERT brings that expertise into modern, AI-powered software." } },
+      { "@type": "Question", "name": "Can ISOXPERT help us get ISO certified?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CCI provides accredited certification, while the ISOXPERT platform helps you prepare — generating clause-mapped documentation, running gap analysis, managing audit evidence and keeping you audit-ready between surveillance visits. Book a demo to see it in action." } }
     ]
   }
   </script>
@@ -315,6 +334,31 @@
     footer ul a:hover { color: #fff; }
     .foot-bottom { border-top: 1px solid rgba(255,255,255,.1); margin-top: 44px; padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #7e90b8; }
 
+    /* ---------- FAQ (home) ---------- */
+    .faq-home { max-width: 820px; margin: 0 auto; }
+    .faq-home details { border: 1px solid var(--line); border-radius: 14px; padding: 4px 20px; margin-bottom: 12px; background: #fff; transition: border-color .2s; }
+    .faq-home details[open] { border-color: var(--blue); }
+    .faq-home summary { cursor: pointer; list-style: none; font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 16px; padding: 16px 0; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+    .faq-home summary::-webkit-details-marker { display: none; }
+    .faq-home summary::after { content: "+"; color: var(--blue); font-size: 22px; font-weight: 700; line-height: 1; }
+    .faq-home details[open] summary::after { content: "–"; }
+    .faq-home details p { color: var(--slate); font-size: 15px; padding: 0 0 16px; }
+
+    /* ---------- Newsletter (home) ---------- */
+    .news-band { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 22px; padding: 34px; }
+    .news-band h3 { font-family: var(--font-head); font-size: 22px; color: var(--navy); letter-spacing: -.4px; margin-bottom: 8px; }
+    .news-band p { color: var(--slate); font-size: 15px; }
+    .news-band form { display: flex; flex-direction: column; gap: 10px; }
+    .news-band .nrow { display: flex; gap: 10px; }
+    .news-band input { flex: 1; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-size: 14px; outline: none; transition: border-color .2s; }
+    .news-band input:focus { border-color: var(--blue); }
+    .news-band .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .news-band .note { font-size: 12px; color: var(--muted); }
+    .news-band .status { font-size: 13.5px; font-weight: 600; }
+    .news-band .status.ok { color: var(--green); }
+    .news-band .status.err { color: #dc2626; }
+    @media (max-width: 700px) { .news-band { grid-template-columns: 1fr; padding: 26px 20px; } .news-band .nrow { flex-direction: column; } }
+
     /* ---------- Responsive ---------- */
     @media (max-width: 980px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -545,12 +589,31 @@
         <p>Support for the world's leading ISO management system standards — and more.</p>
       </div>
       <div class="standards">
-        <div class="chip"><b>ISO 9001</b><span>Quality</span></div>
-        <div class="chip"><b>ISO 14001</b><span>Environment</span></div>
-        <div class="chip"><b>ISO 45001</b><span>Health &amp; Safety</span></div>
-        <div class="chip"><b>ISO 27001</b><span>Information Security</span></div>
+        <a class="chip" href="/iso-9001-certification.html"><b>ISO 9001</b><span>Quality</span></a>
+        <a class="chip" href="/iso-14001-certification.html"><b>ISO 14001</b><span>Environment</span></a>
+        <a class="chip" href="/iso-45001-certification.html"><b>ISO 45001</b><span>Health &amp; Safety</span></a>
+        <a class="chip" href="/iso-27001-certification.html"><b>ISO 27001</b><span>Information Security</span></a>
+        <a class="chip" href="/iso-22000-certification.html"><b>ISO 22000</b><span>Food Safety</span></a>
         <div class="chip"><b>ISO 22301</b><span>Business Continuity</span></div>
         <div class="chip"><b>…and more</b><span>Multi-standard ready</span></div>
+      </div>
+      <p style="text-align:center;margin-top:22px;font-size:14px;color:var(--muted)">Click a standard to learn about certification, cost and timeline →</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2>Common questions</h2>
+        <p>What ISOXPERT is, the standards we cover, and how certification works.</p>
+      </div>
+      <div class="faq-home">
+        <details open><summary>What is ISOXPERT?</summary><p>ISOXPERT is an AI-powered ecosystem of four connected apps — Compliance360, Inspection360, QC360 and Audit360 — for governance, risk, compliance, inspection, quality control and certification audits. It is the digital wing of Company Certification International, an accredited certification body operating since 1997.</p></details>
+        <details><summary>Which ISO standards does ISOXPERT support?</summary><p>ISOXPERT supports the leading ISO management system standards including ISO 9001 (quality), ISO 14001 (environment), ISO 45001 (health &amp; safety), ISO 27001 (information security), ISO 22000 (food safety) and ISO 22301 (business continuity), plus social-accountability, supply-chain and product certification schemes.</p></details>
+        <details><summary>Is Company Certification International an accredited certification body?</summary><p>Yes. Company Certification International (CCI) is a certification body and audit organisation that has issued certificates to companies across manufacturing, trading and services since 1997. ISOXPERT brings that expertise into modern, AI-powered software.</p></details>
+        <details><summary>Can ISOXPERT help us get ISO certified?</summary><p>Yes. CCI provides accredited certification, while the ISOXPERT platform helps you prepare — generating clause-mapped documentation, running gap analysis, managing audit evidence and keeping you audit-ready between surveillance visits. Book a demo to see it in action.</p></details>
       </div>
     </div>
   </section>
@@ -565,6 +628,32 @@
           <a href="https://compliance.isoxpert.com" class="btn btn-white" target="_blank" rel="noopener noreferrer">Launch Compliance</a>
           <a href="https://inspect360suite.com" class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">Launch Inspection</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Newsletter ===== -->
+  <section class="sec" id="newsletter" style="padding-top:0">
+    <div class="wrap">
+      <div class="news-band">
+        <div>
+          <h3>Stay ahead on ISO &amp; compliance</h3>
+          <p>Get our monthly update — standard changes, practical certification tips and product news. Free, and you can unsubscribe anytime.</p>
+        </div>
+        <form id="newsForm" novalidate>
+          <input type="hidden" name="access_key" value="8356636d-cd5a-4350-8e18-e4da75650451" />
+          <input type="hidden" name="subject" value="New newsletter signup — ISOXPERT homepage" />
+          <input type="hidden" name="from_name" value="ISOXPERT Website" />
+          <input type="hidden" name="source" value="homepage" />
+          <input type="checkbox" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="nrow">
+            <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
+            <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="newsBtn" style="justify-content:center">Subscribe</button>
+          <p class="note">By subscribing you agree to receive occasional emails from Company Certification International.</p>
+          <p class="status" id="newsStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -705,6 +794,33 @@
     // Current year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
+    // Newsletter signup (Web3Forms)
+    (function () {
+      var f = document.getElementById('newsForm');
+      if (!f) return;
+      var s = document.getElementById('newsStatus');
+      var b = document.getElementById('newsBtn');
+      var loadedAt = Date.now();
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        s.textContent = ''; s.className = 'status';
+        if (f.querySelector('[name=botcheck]').checked) return;
+        if (Date.now() - loadedAt < 2500) { s.textContent = 'Please take a moment before submitting.'; s.className = 'status err'; return; }
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        var original = b.textContent; b.disabled = true; b.textContent = 'Subscribing…';
+        var data = Object.fromEntries(new FormData(f).entries());
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json(); }).then(function (j) {
+          if (j.success) { s.textContent = 'Thanks for subscribing! Look out for our next update.'; s.className = 'status ok'; f.reset(); }
+          else { s.textContent = 'Something went wrong. Please email info@companycertification.com.'; s.className = 'status err'; }
+        }).catch(function () { s.textContent = 'Network error. Please email info@companycertification.com.'; s.className = 'status err'; })
+        .finally(function () { b.disabled = false; b.textContent = original; });
+      });
+    })();
+
     // Demo request form (Web3Forms)
     (function () {
       var f = document.getElementById('demoForm');
@@ -773,5 +889,9 @@
       });
     })();
   </script>
+
+  <!-- Vercel Web Analytics + Speed Insights (enable both in the Vercel dashboard → Analytics / Speed Insights) -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
