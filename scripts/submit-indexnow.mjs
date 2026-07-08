@@ -21,6 +21,9 @@ const DEFAULT_URLS = [
   "https://isoxpert.com/iso-27001-certification.html",
   "https://isoxpert.com/iso-22000-certification.html",
   "https://isoxpert.com/iso-9001-certification-pakistan.html",
+  "https://isoxpert.com/iso-14001-certification-pakistan.html",
+  "https://isoxpert.com/iso-27001-certification-pakistan.html",
+  "https://isoxpert.com/ce-marking-certification-pakistan.html",
   "https://isoxpert.com/iso-documentation.html",
   "https://isoxpert.com/quickbooks-iif-converter.html",
 ];
