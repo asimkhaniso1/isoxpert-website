@@ -31,7 +31,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://compliance.isoxpert.com/</loc>
+    <loc>https://compliance360.isoxpert.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -41,12 +41,12 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://qc360.companycertification.com/</loc>
+    <loc>https://qc360.isoxpert.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://audit360.companycertification.com/</loc>
+    <loc>https://audit360.isoxpert.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
