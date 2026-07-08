@@ -223,7 +223,7 @@
     <div class="wrap">
       <div class="news">
         <div>
-          <h3>Free: ISO 27001 readiness checklist</h3>
+          <h3>Stay ahead on ISO 27001 &amp; compliance</h3>
           <p>Join our monthly ISO &amp; compliance update and we'll send practical guidance for getting — and staying — certified. No spam, unsubscribe anytime.</p>
         </div>
         <form id="newsForm" novalidate>
@@ -236,7 +236,7 @@
             <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
             <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
           </div>
-          <button type="submit" class="btn btn-primary" id="newsBtn" style="justify-content:center">Send me the checklist</button>
+          <button type="submit" class="btn btn-primary" id="newsBtn" style="justify-content:center">Subscribe</button>
           <p class="note">By subscribing you agree to receive occasional emails from Company Certification International.</p>
           <p class="status" id="newsStatus" role="status" aria-live="polite"></p>
         </form>
@@ -320,7 +320,7 @@
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
         }).then(function (r) { return r.json(); }).then(function (j) {
-          if (j.success) { s.textContent = 'Thank you! Check your inbox — the checklist is on its way.'; s.className = 'status ok'; f.reset(); }
+          if (j.success) { s.textContent = 'Thanks for subscribing! Look out for our next update.'; s.className = 'status ok'; f.reset(); }
           else { s.textContent = 'Something went wrong. Please email info@companycertification.com.'; s.className = 'status err'; }
         }).catch(function () { s.textContent = 'Network error. Please email info@companycertification.com.'; s.className = 'status err'; })
         .finally(function () { b.disabled = false; b.textContent = original; });
