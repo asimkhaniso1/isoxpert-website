@@ -31,8 +31,8 @@
 
   <link rel="stylesheet" href="/standards.css" />
   <style>
-    .founder-band { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 24px; padding: 40px; }
-    .founder-band img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); }
+    .founder-band { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 2px; padding: 40px; }
+    .founder-band img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; border: 1px solid var(--line); }
     .founder-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
     .founder-stats b { display: block; font-size: 22px; color: var(--navy); }
     .founder-stats span { font-size: 13px; color: var(--muted); }
@@ -71,13 +71,14 @@
   <header>
     <div class="wrap nav">
       <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="/#ecosystem">Ecosystem</a>
         <a href="/#standards">Standards</a>
         <a href="/partners.html">Partners</a>
         <a href="/#contact">Contact</a>
       </nav>
       <a href="#apply" class="btn btn-primary">Become a Partner</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -139,22 +140,22 @@
       <div class="grid-3">
         <div class="card">
           <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
-          <h4>Inspection360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:999px;background:rgba(22,163,74,.12);color:var(--green);text-transform:uppercase;margin-left:6px">Live</span></h4>
+          <h4>Inspection360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:2px;background:rgba(22,163,74,.12);color:var(--green);text-transform:uppercase;margin-left:6px">Live</span></h4>
           <p>Smart inspection management — digital checklists, evidence capture and instant insights on any device.</p>
         </div>
         <div class="card">
           <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-          <h4>Compliance360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:999px;background:rgba(22,163,74,.12);color:var(--green);text-transform:uppercase;margin-left:6px">Live</span></h4>
+          <h4>Compliance360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:2px;background:rgba(22,163,74,.12);color:var(--green);text-transform:uppercase;margin-left:6px">Live</span></h4>
           <p>AI-powered governance, risk and compliance — clause-mapped documentation and full governance lifecycle.</p>
         </div>
         <div class="card">
           <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 16-9 5-9-5V8l9-5 9 5z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
-          <h4>QC360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:999px;background:#f1f5f9;color:var(--muted);text-transform:uppercase;margin-left:6px">Coming Soon</span></h4>
+          <h4>QC360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:2px;background:#f1f5f9;color:var(--muted);text-transform:uppercase;margin-left:6px">Coming Soon</span></h4>
           <p>AI visual quality inspection — defect tracking, sampling plans and acceptance criteria.</p>
         </div>
         <div class="card">
           <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></div>
-          <h4>Audit360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:999px;background:#f1f5f9;color:var(--muted);text-transform:uppercase;margin-left:6px">Coming Soon</span></h4>
+          <h4>Audit360 <span style="font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 8px;border-radius:2px;background:#f1f5f9;color:var(--muted);text-transform:uppercase;margin-left:6px">Coming Soon</span></h4>
           <p>Certification audit management — audit programmes, scheduling, findings and corrective actions.</p>
         </div>
       </div>
@@ -230,16 +231,16 @@
         <h2>Ideal partners</h2>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">NEBOSH Professionals</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">ISO Consultants</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">HSE Consultants</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Lead Auditors</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Trainers</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Certification Bodies</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Engineering Consultants</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Industrial Safety Professionals</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Environmental Consultants</span>
-        <span style="border:1px solid var(--line);border-radius:14px;padding:12px 20px;background:#fff;font-size:14px;font-weight:700;color:var(--navy)">Quality Consultants</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">NEBOSH Professionals</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">ISO Consultants</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">HSE Consultants</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Lead Auditors</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Trainers</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Certification Bodies</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Engineering Consultants</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Industrial Safety Professionals</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Environmental Consultants</span>
+        <span style="border:1px solid var(--line);border-radius:2px;padding:12px 20px;background:#fff;font-size:14px;font-weight:600;color:var(--navy)">Quality Consultants</span>
       </div>
     </div>
   </section>
@@ -335,14 +336,14 @@
             <input type="text" name="company" placeholder="Company / consultancy name" aria-label="Company name" />
             <input type="text" name="country" placeholder="Country / region" aria-label="Country or region" />
           </div>
-          <select name="partner_type" aria-label="Partner type interest" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;margin-top:10px">
+          <select name="partner_type" aria-label="Partner type interest" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;font:inherit;font-size:14px;margin-top:10px">
             <option value="">Which partner tier interests you? (optional)</option>
             <option>Affiliate Partner</option>
             <option>Territory Partner</option>
             <option>Country Master Partner</option>
             <option>Not sure yet</option>
           </select>
-          <textarea name="message" rows="3" placeholder="Tell us about your background and market (optional)" aria-label="Message" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;margin-top:10px;resize:vertical"></textarea>
+          <textarea name="message" rows="3" placeholder="Tell us about your background and market (optional)" aria-label="Message" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;font:inherit;font-size:14px;margin-top:10px;resize:vertical"></textarea>
           <button type="submit" class="btn btn-primary" id="partnerBtn" style="justify-content:center;margin-top:10px">Submit application</button>
           <p class="note">We'll follow up by email to schedule a discovery call.</p>
           <p class="status" id="partnerStatus" role="status" aria-live="polite"></p>
@@ -435,5 +436,18 @@
   <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    (function () {
+      var b = document.getElementById('menuBtn'), n = document.getElementById('navLinks');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      n.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+  </script>
 </body>
 </html>

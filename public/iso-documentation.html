@@ -59,7 +59,7 @@
   <header>
     <div class="wrap nav">
       <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="navLinks">
         <a href="/#ecosystem">Ecosystem</a>
         <a href="/#standards">Standards</a>
         <a href="/#about">About</a>
@@ -67,6 +67,7 @@
         <a href="/#contact">Contact</a>
       </nav>
       <a href="#request" class="btn btn-primary">Get early access</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -185,7 +186,7 @@
             <input type="text" name="name" placeholder="Your name" aria-label="Your name" />
             <input type="email" name="email" required placeholder="you@company.com" aria-label="Work email" />
           </div>
-          <input type="text" name="standard_interest" placeholder="Which standard? (optional)" aria-label="Which standard" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;margin-top:10px" />
+          <input type="text" name="standard_interest" placeholder="Which standard? (optional)" aria-label="Which standard" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;font:inherit;font-size:14px;margin-top:10px" />
           <button type="submit" class="btn btn-primary" id="reqBtn" style="justify-content:center;margin-top:10px">Get early access</button>
           <p class="note">By subscribing you agree to receive occasional emails from Company Certification International.</p>
           <p class="status" id="reqStatus" role="status" aria-live="polite"></p>
@@ -267,5 +268,18 @@
   <!-- Vercel Web Analytics + Speed Insights -->
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    (function () {
+      var b = document.getElementById('menuBtn'), n = document.getElementById('navLinks');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      n.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+  </script>
 </body>
 </html>
