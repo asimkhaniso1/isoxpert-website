@@ -30,6 +30,15 @@
   <meta name="twitter:image" content="https://isoxpert.com/og-image.svg" />
 
   <link rel="stylesheet" href="/standards.css" />
+  <style>
+    .founder-band { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 24px; padding: 40px; }
+    .founder-band img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); }
+    .founder-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 26px; }
+    .founder-stats b { display: block; font-size: 22px; color: var(--navy); }
+    .founder-stats span { font-size: 13px; color: var(--muted); }
+    @media (max-width: 860px) { .founder-band { grid-template-columns: 1fr; padding: 28px 22px; } .founder-band img { max-width: 220px; margin: 0 auto; } .founder-stats { grid-template-columns: repeat(2, 1fr); } }
+    .founder-band.no-photo { grid-template-columns: 1fr; }
+  </style>
 
   <script type="application/ld+json">
   {
@@ -95,6 +104,27 @@
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b style="color:#fff">Support:</b> training, marketing &amp; onboarding included</span></li>
         </ul>
       </aside>
+    </div>
+  </section>
+
+  <!-- Led by -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="founder-band">
+        <img src="/founder-muhammad-asim-khan.jpg" alt="Muhammad Asim Khan — ISO Consultant, Lead Auditor and founder of ISOXPERT" width="240" height="240" loading="lazy" onerror="this.style.display='none';this.closest('.founder-band').classList.add('no-photo')" />
+        <div>
+          <div class="kicker">Led by</div>
+          <h2 style="margin-top:8px">Muhammad Asim Khan</h2>
+          <p style="color:var(--accent);font-weight:700;margin-top:4px;font-size:14.5px">ISO Consultant · Lead Auditor · Compliance Specialist · Tech Entrepreneur</p>
+          <p style="margin-top:16px;color:var(--slate);font-style:italic;border-left:3px solid var(--accent);padding-left:16px">"I combine deep domain expertise with modern technology to deliver practical, efficient and sustainable solutions that create long-term business value."</p>
+          <div class="founder-stats">
+            <div><b>28+</b><span>Years experience</span></div>
+            <div><b>200+</b><span>Implementations</span></div>
+            <div><b>120+</b><span>Audits conducted</span></div>
+            <div><b>350+</b><span>Training sessions</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
