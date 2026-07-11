@@ -26,6 +26,7 @@ const DEFAULT_URLS = [
   "https://isoxpert.com/ce-marking-certification-pakistan.html",
   "https://isoxpert.com/iso-documentation.html",
   "https://isoxpert.com/quickbooks-iif-converter.html",
+  "https://isoxpert.com/partners.html",
 ];
 
 const urlList = process.argv.slice(2).length ? process.argv.slice(2) : DEFAULT_URLS;
