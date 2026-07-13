@@ -1,0 +1,135 @@
+<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Segoe UI', Arial, sans-serif">
+  <rect width="1200" height="675" fill="#F7F8FA"/>
+
+  <!-- ================= PHONE ================= -->
+  <rect x="150" y="52" width="278" height="571" rx="30" fill="#0A1E3F"/>
+  <rect x="162" y="64" width="254" height="547" rx="20" fill="#FFFFFF"/>
+  <rect x="255" y="74" width="68" height="7" rx="3.5" fill="#0A1E3F" opacity=".35"/>
+
+  <!-- app header -->
+  <rect x="162" y="92" width="254" height="56" fill="#16A34A"/>
+  <path d="M186 108l9-4 9 4v8c0 7-5.5 11-9 12-3.5-1-9-5-9-12z" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M190.5 116l3 3 5.5-6" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="212" y="125" font-size="17" font-weight="700" fill="#FFFFFF">Inspect360</text>
+  <circle cx="398" cy="120" r="9" fill="none" stroke="#FFFFFF" stroke-width="1.6" opacity=".8"/>
+  <path d="M398 115v5" stroke="#FFFFFF" stroke-width="1.6" opacity=".8" stroke-linecap="round"/>
+
+  <!-- section title -->
+  <text x="180" y="176" font-size="14" font-weight="700" fill="#16181D">Site Inspection</text>
+  <text x="398" y="176" font-size="10.5" font-weight="600" fill="#16A34A" text-anchor="end">In Progress</text>
+
+  <!-- tiles 3x2 -->
+  <g stroke="#E5E7EB" fill="#FFFFFF">
+    <rect x="180" y="190" width="70" height="62" rx="2"/>
+    <rect x="254" y="190" width="70" height="62" rx="2"/>
+    <rect x="328" y="190" width="70" height="62" rx="2"/>
+    <rect x="180" y="256" width="70" height="62" rx="2"/>
+    <rect x="254" y="256" width="70" height="62" rx="2"/>
+    <rect x="328" y="256" width="70" height="62" rx="2"/>
+  </g>
+  <!-- tile icons -->
+  <g stroke="#16A34A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M206 206h18M206 212h18M206 218h11"/>                                   <!-- checklist -->
+    <path d="M289 220l6-11 6 11z"/><path d="M295 214.5v3.4"/>                        <!-- observation -->
+    <rect x="352" y="207" width="22" height="15" rx="2"/><circle cx="363" cy="214.5" r="4"/> <!-- photo -->
+    <path d="M206 285a9 9 0 1 1 9 9" /><path d="M215 276v9h7"/>                      <!-- risk clock -->
+    <path d="M283 288l4 4 9-10"/>                                                    <!-- actions -->
+    <path d="M354 271h14l6 6v17h-20zM368 271v6h6"/>                                  <!-- report -->
+  </g>
+  <g font-size="8.5" font-weight="600" fill="#4B5563" text-anchor="middle">
+    <text x="215" y="243">Checklist</text>
+    <text x="289" y="243">Observations</text>
+    <text x="363" y="243">Photos</text>
+    <text x="215" y="309">Risk Assess</text>
+    <text x="289" y="309">Actions</text>
+    <text x="363" y="309">Reports</text>
+  </g>
+
+  <!-- risk level donut -->
+  <text x="180" y="348" font-size="12" font-weight="700" fill="#16181D">Risk Level</text>
+  <g transform="rotate(-90 232 408)">
+    <circle cx="232" cy="408" r="34" fill="none" stroke="#EF4444" stroke-width="13" stroke-dasharray="46.6 167" />
+    <circle cx="232" cy="408" r="34" fill="none" stroke="#F59E0B" stroke-width="13" stroke-dasharray="97.1 167" stroke-dashoffset="-46.6"/>
+    <circle cx="232" cy="408" r="34" fill="none" stroke="#16A34A" stroke-width="13" stroke-dasharray="69.9 167" stroke-dashoffset="-143.7"/>
+  </g>
+  <text x="232" y="404" font-size="13" font-weight="700" fill="#16181D" text-anchor="middle">55</text>
+  <text x="232" y="417" font-size="7.5" fill="#6B7280" text-anchor="middle">findings</text>
+  <g font-size="10" fill="#4B5563">
+    <rect x="292" y="380" width="8" height="8" fill="#EF4444"/><text x="306" y="388">High</text><text x="398" y="388" text-anchor="end" font-weight="700" fill="#16181D">12</text>
+    <rect x="292" y="402" width="8" height="8" fill="#F59E0B"/><text x="306" y="410">Medium</text><text x="398" y="410" text-anchor="end" font-weight="700" fill="#16181D">25</text>
+    <rect x="292" y="424" width="8" height="8" fill="#16A34A"/><text x="306" y="432">Low</text><text x="398" y="432" text-anchor="end" font-weight="700" fill="#16181D">18</text>
+  </g>
+
+  <!-- open actions -->
+  <rect x="180" y="462" width="218" height="58" rx="2" fill="#F7F8FA" stroke="#E5E7EB"/>
+  <text x="194" y="484" font-size="10" font-weight="600" fill="#6B7280">OPEN ACTIONS</text>
+  <text x="194" y="508" font-size="20" font-weight="700" fill="#16181D">8</text>
+  <text x="384" y="500" font-size="10.5" font-weight="600" fill="#16A34A" text-anchor="end">View All →</text>
+
+  <!-- home indicator -->
+  <rect x="252" y="592" width="74" height="5" rx="2.5" fill="#0A1E3F" opacity=".25"/>
+
+  <!-- ================= ARROW ================= -->
+  <path d="M470 338h64" stroke="#9CA3AF" stroke-width="1.6" stroke-dasharray="5 5"/>
+  <path d="M534 338l-9-5.5v11z" fill="#9CA3AF"/>
+
+  <!-- ================= REPORT CARD ================= -->
+  <rect x="576" y="96" width="474" height="428" rx="2" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="576" y="96" width="474" height="3" fill="#16A34A"/>
+  <text x="604" y="146" font-size="18" font-weight="700" fill="#16181D">Site Inspection Report</text>
+  <rect x="898" y="128" width="126" height="24" rx="2" fill="#EAF7EF"/>
+  <text x="961" y="144" font-size="10" font-weight="700" fill="#16A34A" text-anchor="middle">READY IN SECONDS</text>
+  <g font-size="11" fill="#6B7280">
+    <text x="604" y="172">Client: Al-Faisal Industries · Site 3</text>
+    <text x="604" y="190">Inspector: NEBOSH-certified · 13 Jul 2026</text>
+  </g>
+  <line x1="604" y1="206" x2="1024" y2="206" stroke="#E5E7EB"/>
+
+  <!-- findings rows -->
+  <g>
+    <circle cx="616" cy="238" r="9" fill="none" stroke="#EF4444" stroke-width="1.8"/>
+    <path d="M616 233.5v5.5M616 242.6v.4" stroke="#EF4444" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="638" y="235" font-size="12" font-weight="600" fill="#16181D">Scaffold guardrail missing — Zone B</text>
+    <text x="638" y="250" font-size="10" fill="#6B7280">Photo evidence attached · Action assigned to site supervisor</text>
+    <rect x="960" y="226" width="64" height="20" rx="2" fill="#FDECEC"/><text x="992" y="240" font-size="9.5" font-weight="700" fill="#EF4444" text-anchor="middle">HIGH</text>
+  </g>
+  <g>
+    <circle cx="616" cy="290" r="9" fill="none" stroke="#F59E0B" stroke-width="1.8"/>
+    <path d="M616 285.5v5.5M616 294.6v.4" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="638" y="287" font-size="12" font-weight="600" fill="#16181D">PPE compliance below target — loading bay</text>
+    <text x="638" y="302" font-size="10" fill="#6B7280">Toolbox talk scheduled · Re-check in 7 days</text>
+    <rect x="960" y="278" width="64" height="20" rx="2" fill="#FEF4E6"/><text x="992" y="292" font-size="9.5" font-weight="700" fill="#F59E0B" text-anchor="middle">MEDIUM</text>
+  </g>
+  <g>
+    <circle cx="616" cy="342" r="9" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+    <path d="M611.5 342l3 3 6-6.5" stroke="#16A34A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="638" y="339" font-size="12" font-weight="600" fill="#16181D">Fire extinguishers inspected &amp; tagged</text>
+    <text x="638" y="354" font-size="10" fill="#6B7280">All 14 units compliant</text>
+    <rect x="960" y="330" width="64" height="20" rx="2" fill="#EAF7EF"/><text x="992" y="344" font-size="9.5" font-weight="700" fill="#16A34A" text-anchor="middle">PASS</text>
+  </g>
+  <g>
+    <circle cx="616" cy="394" r="9" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+    <path d="M611.5 394l3 3 6-6.5" stroke="#16A34A" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="638" y="391" font-size="12" font-weight="600" fill="#16181D">Emergency exits clear &amp; signage visible</text>
+    <text x="638" y="406" font-size="10" fill="#6B7280">Verified across all floors</text>
+    <rect x="960" y="382" width="64" height="20" rx="2" fill="#EAF7EF"/><text x="992" y="396" font-size="9.5" font-weight="700" fill="#16A34A" text-anchor="middle">PASS</text>
+  </g>
+
+  <line x1="604" y1="432" x2="1024" y2="432" stroke="#E5E7EB"/>
+  <text x="604" y="464" font-size="10.5" fill="#6B7280">Aligned with ISO 45001 &amp; local regulations</text>
+  <rect x="854" y="448" width="170" height="30" rx="2" fill="#0A1E3F"/>
+  <text x="939" y="467" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Export client-ready PDF</text>
+
+  <!-- chips under card -->
+  <g font-size="11" font-weight="600" fill="#4B5563">
+    <rect x="576" y="548" width="150" height="32" rx="2" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <path d="M592 564l4 4 7-8" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="610" y="568">Evidence attached</text>
+    <rect x="740" y="548" width="148" height="32" rx="2" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <path d="M756 564l4 4 7-8" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="774" y="568">Actions assigned</text>
+    <rect x="902" y="548" width="148" height="32" rx="2" fill="#FFFFFF" stroke="#E5E7EB"/>
+    <path d="M918 564l4 4 7-8" stroke="#16A34A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="936" y="568">Client-ready PDF</text>
+  </g>
+</svg>
