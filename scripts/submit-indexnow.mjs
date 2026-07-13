@@ -28,6 +28,7 @@ const DEFAULT_URLS = [
   "https://isoxpert.com/quickbooks-iif-converter.html",
   "https://isoxpert.com/partners.html",
   "https://isoxpert.com/inspect360-hse-inspections.html",
+  "https://isoxpert.com/compliance360-for-hse-consultants.html",
 ];
 
 const urlList = process.argv.slice(2).length ? process.argv.slice(2) : DEFAULT_URLS;
