@@ -31,9 +31,13 @@
 
   <link rel="stylesheet" href="/standards.css" />
   <style>
-    .showcase { margin: 0 auto; max-width: 720px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--bg-soft); }
+    .showcase { margin: 0 auto; max-width: 900px; border: 1px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--bg-soft); box-shadow: var(--shadow); }
     .showcase img { width: 100%; height: auto; display: block; }
     .showcase figcaption { padding: 14px 18px; font-size: 13px; color: var(--muted); text-align: center; border-top: 1px solid var(--line); background: #fff; }
+    .shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .shot-pair .showcase { max-width: none; margin: 0; }
+    .shot-pair .showcase img { max-height: 460px; object-fit: cover; object-position: top; }
+    @media (max-width: 860px) { .shot-pair { grid-template-columns: 1fr; } }
   </style>
 
   <script type="application/ld+json">
@@ -115,12 +119,12 @@
     </div>
   </section>
 
-  <!-- Product showcase (image added by user) -->
+  <!-- Product showcase — real app screenshots -->
   <section class="sec" id="preview" style="padding-bottom:0">
     <div class="wrap">
       <figure class="showcase">
-        <img src="/inspect360-app-preview.svg" alt="Inspect360 app — site inspection dashboard with checklist, observations, photos, risk assessment, actions and instant report" width="1200" height="675" loading="lazy" onerror="this.closest('#preview').style.display='none'" />
-        <figcaption>Run the whole inspection from your phone — checklist, evidence, risk level and report in one place.</figcaption>
+        <img src="/inspect360-dashboard.png" alt="Inspect360 facility dashboard — compliance overview with score, predictive risk forecast, open findings, recalls and key metrics" width="1920" height="1080" loading="lazy" onerror="this.closest('#preview').style.display='none'" />
+        <figcaption>The Inspect360 facility dashboard — compliance score, predictive risk forecast and key metrics for every site.</figcaption>
       </figure>
     </div>
   </section>
@@ -206,6 +210,27 @@
           <h4>Save time</h4>
           <p>Cut hours of post-inspection admin so you can take on more clients and deliver a faster, more professional service.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- From photos to report -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">How it works in practice</div>
+        <h2>From site photos to an audit-ready report.</h2>
+        <p>Capture photos on site — AI maps them to inspection areas, identifies risks and writes the findings, complete with regulatory references.</p>
+      </div>
+      <div class="shot-pair">
+        <figure class="showcase">
+          <img src="/inspect360-quick-capture.png" alt="Inspect360 Quick Capture — batch photo capture during a food safety inspection, AI auto-maps photos to inspection areas" width="1224" height="641" loading="lazy" />
+          <figcaption>1 · Capture photos on site — AI auto-maps them to inspection areas.</figcaption>
+        </figure>
+        <figure class="showcase">
+          <img src="/inspect360-qhse-report.png" alt="Inspect360 QHSE report — AI-assisted risk identification on production floor photos with observations, recommendations and ISO 45001 references" width="863" height="991" loading="lazy" />
+          <figcaption>2 · Get an audit-ready QHSE report — findings, recommendations &amp; ISO 45001 references.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
