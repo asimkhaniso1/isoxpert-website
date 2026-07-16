@@ -934,6 +934,29 @@
         btn.disabled = true; btn.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
         data.products = products.join(', ');
+
+        // Also log the lead in the CCI admin (companycertification.com) so it can be
+        // followed up from the Inquiries panel, not just email. Fire-and-forget — a
+        // failure here must never affect the visitor's demo-request confirmation.
+        try {
+          fetch('https://companycertification.com/api/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              form_name: 'ISOXPERT Demo Request',
+              fields: {
+                contact_person: data.name || '',
+                email: data.email || '',
+                company_name: data.company || '',
+                standard: data.products || '',
+                preferred_date: data.preferred_date || '',
+                preferred_time: data.preferred_time || '',
+                message: data.message || ''
+              }
+            })
+          }).catch(function () {});
+        } catch (ignore) {}
+
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
