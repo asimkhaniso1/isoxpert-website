@@ -793,43 +793,60 @@
           </div>
 
           <div class="field">
-            <label>Which product demo?* <span id="df-prodhint" style="font-weight:500;color:var(--muted)">(select one or more)</span></label>
+            <label>What can we help with?*</label>
             <div class="checks">
-              <label class="chk"><input type="checkbox" name="products" value="Compliance360" /> Compliance360</label>
-              <label class="chk"><input type="checkbox" name="products" value="Inspection360" /> Inspection360</label>
-              <label class="chk"><input type="checkbox" name="products" value="QC360" /> QC360</label>
-              <label class="chk"><input type="checkbox" name="products" value="Audit360" /> Audit360</label>
+              <label class="chk"><input type="radio" name="inquiry_type" value="demo" required /> Free app demo</label>
+              <label class="chk"><input type="radio" name="inquiry_type" value="consulting" required /> Schedule free consulting meeting</label>
             </div>
           </div>
 
-          <div class="field">
-            <label>Which ISO standard(s)? <span style="font-weight:500;color:var(--muted)">(optional — tick any that apply)</span></label>
-            <div class="checks">
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 9001" /> ISO 9001</label>
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 14001" /> ISO 14001</label>
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 45001" /> ISO 45001</label>
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 27001" /> ISO 27001</label>
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 22000" /> ISO 22000</label>
-              <label class="chk"><input type="checkbox" name="standards" value="ISO 13485" /> ISO 13485</label>
-              <label class="chk"><input type="checkbox" name="standards" value="CE Marking" /> CE Marking</label>
-              <label class="chk"><input type="checkbox" name="standards" value="Halal" /> Halal</label>
-              <label class="chk"><input type="checkbox" name="standards" value="Other" /> Other</label>
+          <!-- Demo path: which product + preferred slot -->
+          <div id="demoFields" hidden>
+            <div class="field">
+              <label>Which product demo?* <span style="font-weight:500;color:var(--muted)">(select one or more)</span></label>
+              <div class="checks">
+                <label class="chk"><input type="checkbox" name="products" value="Compliance360" /> Compliance360</label>
+                <label class="chk"><input type="checkbox" name="products" value="Inspection360" /> Inspection360</label>
+                <label class="chk"><input type="checkbox" name="products" value="QC360" /> QC360</label>
+                <label class="chk"><input type="checkbox" name="products" value="Audit360" /> Audit360</label>
+              </div>
             </div>
           </div>
 
-          <div class="frow">
+          <!-- Consulting path: which ISO standard(s) -->
+          <div id="consultingFields" hidden>
             <div class="field">
-              <label for="df-date">Preferred date</label>
-              <input id="df-date" type="date" name="preferred_date" />
+              <label>Which ISO standard(s)?* <span style="font-weight:500;color:var(--muted)">(select one or more)</span></label>
+              <div class="checks">
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 9001" /> ISO 9001</label>
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 14001" /> ISO 14001</label>
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 45001" /> ISO 45001</label>
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 27001" /> ISO 27001</label>
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 22000" /> ISO 22000</label>
+                <label class="chk"><input type="checkbox" name="standards" value="ISO 13485" /> ISO 13485</label>
+                <label class="chk"><input type="checkbox" name="standards" value="CE Marking" /> CE Marking</label>
+                <label class="chk"><input type="checkbox" name="standards" value="Halal" /> Halal</label>
+                <label class="chk"><input type="checkbox" name="standards" value="Other" /> Other</label>
+              </div>
             </div>
-            <div class="field">
-              <label for="df-time">Preferred time slot</label>
-              <select id="df-time" name="preferred_time">
-                <option value="">Any time</option>
-                <option>Morning (9am–12pm)</option>
-                <option>Midday (12pm–3pm)</option>
-                <option>Afternoon (3pm–6pm)</option>
-              </select>
+          </div>
+
+          <!-- Shared: preferred meeting slot (demo or consulting call) -->
+          <div id="scheduleFields" hidden>
+            <div class="frow">
+              <div class="field">
+                <label for="df-date">Preferred date</label>
+                <input id="df-date" type="date" name="preferred_date" />
+              </div>
+              <div class="field">
+                <label for="df-time">Preferred time slot</label>
+                <select id="df-time" name="preferred_time">
+                  <option value="">Any time</option>
+                  <option>Morning (9am–12pm)</option>
+                  <option>Midday (12pm–3pm)</option>
+                  <option>Afternoon (3pm–6pm)</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -838,7 +855,7 @@
             <textarea id="df-msg" name="message" rows="3" placeholder="Tell us about your compliance needs (optional)"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary" id="demoSubmit">Request demo</button>
+          <button type="submit" class="btn btn-primary" id="demoSubmit">Submit request</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -961,6 +978,26 @@
       var dateEl = document.getElementById('df-date');
       if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
 
+      // Intent toggle — show demo fields OR consulting fields, and label the button.
+      var demoFields = document.getElementById('demoFields');
+      var consultingFields = document.getElementById('consultingFields');
+      var scheduleFields = document.getElementById('scheduleFields');
+      function currentIntent() {
+        var r = f.querySelector('input[name=inquiry_type]:checked');
+        return r ? r.value : '';
+      }
+      function syncIntent() {
+        var it = currentIntent();
+        if (demoFields) demoFields.hidden = it !== 'demo';
+        if (consultingFields) consultingFields.hidden = it !== 'consulting';
+        if (scheduleFields) scheduleFields.hidden = !it; // a slot is booked for either path
+        btn.textContent = it === 'consulting' ? 'Schedule meeting' : (it === 'demo' ? 'Book demo' : 'Submit request');
+      }
+      Array.prototype.forEach.call(f.querySelectorAll('input[name=inquiry_type]'), function (r) {
+        r.addEventListener('change', syncIntent);
+      });
+      syncIntent();
+
       f.addEventListener('submit', function (e) {
         e.preventDefault();
         status.textContent = ''; status.className = 'form-status';
@@ -976,12 +1013,21 @@
 
         if (!f.checkValidity()) { f.reportValidity(); return; }
 
-        // Require at least one product for the demo
+        // Require the field that matches the chosen intent.
+        var intent = currentIntent();
         var products = Array.prototype.slice
           .call(f.querySelectorAll('input[name=products]:checked'))
           .map(function (x) { return x.value; });
-        if (products.length === 0) {
+        var standards = Array.prototype.slice
+          .call(f.querySelectorAll('input[name=standards]:checked'))
+          .map(function (x) { return x.value; });
+        if (intent === 'demo' && products.length === 0) {
           status.textContent = 'Please select at least one product for your demo.';
+          status.className = 'form-status err';
+          return;
+        }
+        if (intent === 'consulting' && standards.length === 0) {
+          status.textContent = "Please select at least one standard you're interested in.";
           status.className = 'form-status err';
           return;
         }
@@ -996,10 +1042,8 @@
         btn.disabled = true; btn.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
         data.products = products.join(', ');
-        var standards = Array.prototype.slice
-          .call(f.querySelectorAll('input[name=standards]:checked'))
-          .map(function (x) { return x.value; });
         data.standards = standards.join(', ');
+        data.subject = intent === 'consulting' ? 'New ISOXPERT consulting meeting request' : 'New ISOXPERT demo request';
 
         // Also log the lead in the CCI admin (companycertification.com) so it can be
         // followed up from the Inquiries panel, not just email. Fire-and-forget — a
@@ -1009,7 +1053,7 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              form_name: 'ISOXPERT Demo Request',
+              form_name: intent === 'consulting' ? 'ISOXPERT Consulting Meeting' : 'ISOXPERT Demo Request',
               fields: {
                 contact_person: data.name || '',
                 email: data.email || '',
@@ -1034,9 +1078,12 @@
           body: JSON.stringify(data)
         }).then(function (r) { return r.json(); }).then(function (j) {
           if (j.success) {
-            status.textContent = 'Thank you! Your demo request has been sent — we will confirm your slot by email shortly.';
+            status.textContent = intent === 'consulting'
+              ? 'Thank you! Your consulting meeting request has been received — we will confirm your slot by email shortly.'
+              : 'Thank you! Your demo request has been sent — we will confirm your slot by email shortly.';
             status.className = 'form-status ok';
             f.reset();
+            syncIntent();
           } else {
             status.textContent = 'Sorry, something went wrong. Please email info@companycertification.com.';
             status.className = 'form-status err';
