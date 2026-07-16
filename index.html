@@ -745,6 +745,53 @@
             <input id="df-company" name="company" placeholder="Company name" />
           </div>
 
+          <div class="frow">
+            <div class="field">
+              <label for="df-phone">Phone*</label>
+              <input id="df-phone" type="tel" name="phone" required placeholder="+92 300 1234567" />
+            </div>
+            <div class="field">
+              <label for="df-country">Country</label>
+              <input id="df-country" name="country" placeholder="e.g. Pakistan" />
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="df-industry">Industry sector</label>
+              <select id="df-industry" name="industry_sector">
+                <option value="">— Select industry —</option>
+                <option>Aerospace &amp; Defence</option>
+                <option>Agriculture &amp; Farming</option>
+                <option>Automotive</option>
+                <option>Banking &amp; Financial Services</option>
+                <option>Chemicals &amp; Plastics</option>
+                <option>Construction &amp; Engineering</option>
+                <option>Education &amp; Training</option>
+                <option>Energy &amp; Oil/Gas</option>
+                <option>Food &amp; Beverage</option>
+                <option>Healthcare &amp; Medical</option>
+                <option>Hospitality &amp; Tourism</option>
+                <option>IT &amp; Technology</option>
+                <option>Manufacturing</option>
+                <option>Mining &amp; Metals</option>
+                <option>Pharmaceutical</option>
+                <option>Real Estate &amp; Property</option>
+                <option>Retail &amp; E-Commerce</option>
+                <option>Telecommunications</option>
+                <option>Textiles &amp; Apparel</option>
+                <option>Transport &amp; Logistics</option>
+                <option>Utilities &amp; Water</option>
+                <option>Waste Management &amp; Recycling</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="df-emp">No. of employees</label>
+              <input id="df-emp" type="number" min="1" name="no_of_employees" placeholder="e.g. 40" />
+            </div>
+          </div>
+
           <div class="field">
             <label>Which product demo?* <span id="df-prodhint" style="font-weight:500;color:var(--muted)">(select one or more)</span></label>
             <div class="checks">
@@ -752,6 +799,21 @@
               <label class="chk"><input type="checkbox" name="products" value="Inspection360" /> Inspection360</label>
               <label class="chk"><input type="checkbox" name="products" value="QC360" /> QC360</label>
               <label class="chk"><input type="checkbox" name="products" value="Audit360" /> Audit360</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Which ISO standard(s)? <span style="font-weight:500;color:var(--muted)">(optional — tick any that apply)</span></label>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 9001" /> ISO 9001</label>
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 14001" /> ISO 14001</label>
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 45001" /> ISO 45001</label>
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 27001" /> ISO 27001</label>
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 22000" /> ISO 22000</label>
+              <label class="chk"><input type="checkbox" name="standards" value="ISO 13485" /> ISO 13485</label>
+              <label class="chk"><input type="checkbox" name="standards" value="CE Marking" /> CE Marking</label>
+              <label class="chk"><input type="checkbox" name="standards" value="Halal" /> Halal</label>
+              <label class="chk"><input type="checkbox" name="standards" value="Other" /> Other</label>
             </div>
           </div>
 
@@ -934,6 +996,10 @@
         btn.disabled = true; btn.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
         data.products = products.join(', ');
+        var standards = Array.prototype.slice
+          .call(f.querySelectorAll('input[name=standards]:checked'))
+          .map(function (x) { return x.value; });
+        data.standards = standards.join(', ');
 
         // Also log the lead in the CCI admin (companycertification.com) so it can be
         // followed up from the Inquiries panel, not just email. Fire-and-forget — a
@@ -948,7 +1014,12 @@
                 contact_person: data.name || '',
                 email: data.email || '',
                 company_name: data.company || '',
-                standard: data.products || '',
+                phone: data.phone || '',
+                country: data.country || '',
+                industry_sector: data.industry_sector || '',
+                no_of_employees: data.no_of_employees || '',
+                standard: data.standards || '',
+                products: data.products || '',
                 preferred_date: data.preferred_date || '',
                 preferred_time: data.preferred_time || '',
                 message: data.message || ''
