@@ -93,7 +93,7 @@
     .lp-hero.video-hero { position: relative; border-bottom: none; }
     .video-hero .hero-media { position: absolute; inset: 0; overflow: hidden; }
     .video-hero .hero-media video,
-    .video-hero .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-hero .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .video-hero .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(6,20,14,.82) 0%, rgba(6,20,14,.62) 55%, rgba(6,20,14,.38) 100%); }
     .video-hero .lp-hero-inner { position: relative; z-index: 1; }
     .video-hero h1, .video-hero .eyebrow { color: #fff; }
@@ -106,7 +106,11 @@
 
   <section class="lp-hero video-hero">
     <div class="hero-media" aria-hidden="true">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_103344_56aaeb26-556a-47d2-b5c7-be2f816cab71_min.webp" alt="" loading="eager" fetchpriority="low" />
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_103344_56aaeb26-556a-47d2-b5c7-be2f816cab71_min.webp" alt="" loading="eager" />
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_103344_56aaeb26-556a-47d2-b5c7-be2f816cab71_min.webp">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_111400_7f9588b8-d0ef-4b71-93d6-737a28a40f84.mp4" type="video/mp4" />
+      </video>
     </div>
     <div class="wrap lp-hero-inner">
       <div>
