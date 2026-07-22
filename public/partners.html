@@ -421,6 +421,19 @@
         if (!f.checkValidity()) { f.reportValidity(); return; }
         var original = b.textContent; b.disabled = true; b.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
+        // Also feed the lead into CCI's admin Partners tab (best-effort — the
+        // Web3Forms email above is the primary channel and isn't blocked by this).
+        fetch('https://companycertification.com/api/submit-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            form_name: 'Partner Application',
+            fields: {
+              name: data.name || '', email: data.email || '', company: data.company || '',
+              country: data.country || '', partner_type: data.partner_type || '', message: data.message || ''
+            }
+          })
+        }).catch(function () {});
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
