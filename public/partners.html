@@ -30,6 +30,7 @@
   <meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_134058_db3dc2a8-be7d-4942-b23c-dd8c9ae0d6cb.png" />
 
   <link rel="stylesheet" href="/standards.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
     .founder-band { display: grid; grid-template-columns: 240px 1fr; gap: 44px; align-items: center; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 2px; padding: 40px; }
     .founder-band img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; border: 1px solid var(--line); }
@@ -38,6 +39,16 @@
     .founder-stats span { font-size: 13px; color: var(--muted); }
     @media (max-width: 860px) { .founder-band { grid-template-columns: 1fr; padding: 28px 22px; } .founder-band img { max-width: 220px; margin: 0 auto; } .founder-stats { grid-template-columns: repeat(2, 1fr); } }
     .founder-band.no-photo { grid-template-columns: 1fr; }
+
+    #partnerMap { height: 420px; border-radius: 2px; border: 1px solid var(--line); margin-bottom: 28px; }
+    .region-card { cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+    .region-card:hover { border-color: var(--accent); }
+    .region-card.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .region-card h4 { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .badge-open { font-size: 10px; font-weight: 800; letter-spacing: 1px; padding: 3px 8px; border-radius: 2px; background: rgba(22,163,74,.12); color: var(--green); text-transform: uppercase; }
+    .region-tier { font-weight: 700; color: var(--navy); margin: 4px 0 6px; font-size: 14px; }
+    .regions-more { text-align: center; margin-top: 26px; }
+    .regions-more p { color: var(--muted); margin-bottom: 14px; }
   </style>
 
   <script type="application/ld+json">
@@ -105,6 +116,67 @@
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b style="color:#fff">Support:</b> training, marketing &amp; onboarding included</span></li>
         </ul>
       </aside>
+    </div>
+  </section>
+
+  <!-- Partner Opportunities — global map + drill-down -->
+  <section class="sec soft" id="regions">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Partner Opportunities</div>
+        <h2>Open regions — right now.</h2>
+        <p>We're appointing Affiliate, Territory and Country Master partners worldwide. These regions are open now — find yours on the map and apply.</p>
+      </div>
+
+      <div id="partnerMap"></div>
+
+      <div class="grid-3">
+        <div class="card region-card" data-lat="25.2048" data-lng="55.2708">
+          <h4>Dubai, United Arab Emirates <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Country master opportunity</p>
+          <p>Country-master opportunity for the GCC — Arabic &amp; English support.</p>
+        </div>
+        <div class="card region-card" data-lat="24.7136" data-lng="46.6753">
+          <h4>Riyadh, Saudi Arabia <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Territory partner opportunity</p>
+          <p>Territory partner opportunity across central Saudi Arabia.</p>
+        </div>
+        <div class="card region-card" data-lat="24.8607" data-lng="67.0011">
+          <h4>Karachi, Pakistan <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Territory partner opportunity</p>
+          <p>Territory partner opportunity across southern Pakistan.</p>
+        </div>
+        <div class="card region-card" data-lat="51.5074" data-lng="-0.1278">
+          <h4>London, United Kingdom <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Affiliate opportunity</p>
+          <p>Affiliate opportunity for the UK &amp; Ireland.</p>
+        </div>
+        <div class="card region-card" data-lat="50.1109" data-lng="8.6821">
+          <h4>Frankfurt, Germany <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Country master opportunity</p>
+          <p>Country-master opportunity for the DACH region.</p>
+        </div>
+        <div class="card region-card" data-lat="23.5880" data-lng="58.3829">
+          <h4>Muscat, Oman <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Territory partner opportunity</p>
+          <p>Territory partner opportunity across Oman.</p>
+        </div>
+        <div class="card region-card" data-lat="40.7128" data-lng="-74.0060">
+          <h4>New York, United States <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Country master opportunity</p>
+          <p>Country-master opportunity for the United States.</p>
+        </div>
+        <div class="card region-card" data-lat="43.6532" data-lng="-79.3832">
+          <h4>Toronto, Canada <span class="badge-open">Open</span></h4>
+          <p class="region-tier">Territory partner opportunity</p>
+          <p>Territory partner opportunity across Canada.</p>
+        </div>
+      </div>
+
+      <div class="regions-more">
+        <p>Don't see your region? We appoint partners worldwide.</p>
+        <a href="#apply" class="btn btn-primary">Apply to partner with us</a>
+      </div>
     </div>
   </section>
 
@@ -460,6 +532,40 @@
       });
       n.addEventListener('click', function (e) {
         if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+  </script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    (function () {
+      var mapEl = document.getElementById('partnerMap');
+      var cards = document.querySelectorAll('.region-card');
+      if (!mapEl || !cards.length || typeof L === 'undefined') return;
+
+      var map = L.map('partnerMap', { scrollWheelZoom: false }).setView([25, 20], 2);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+      }).addTo(map);
+
+      function setActive(card) {
+        cards.forEach(function (c) { c.classList.remove('active'); });
+        card.classList.add('active');
+      }
+
+      cards.forEach(function (card) {
+        var lat = parseFloat(card.dataset.lat), lng = parseFloat(card.dataset.lng);
+        if (isNaN(lat) || isNaN(lng)) return;
+        var title = card.querySelector('h4').childNodes[0].textContent.trim();
+        var marker = L.marker([lat, lng]).addTo(map).bindPopup('<strong>' + title + '</strong>');
+
+        marker.on('click', function () { setActive(card); card.scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+        card.addEventListener('click', function () {
+          setActive(card);
+          map.setView([lat, lng], 5, { animate: true });
+          marker.openPopup();
+        });
       });
     })();
   </script>
