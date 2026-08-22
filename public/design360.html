@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0B1E47" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" /></noscript>
+
+  <title>Design360 — Turn Your Manufacturing Website Into an Interactive Design Studio | ISOXPERT</title>
+  <meta name="description" content="Let customers configure, visualize and specify custom products online — before they request a quotation. Design360 turns your manufacturing website into an interactive Design Studio, from customer idea to manufacturable specification." />
+  <meta name="keywords" content="product configurator, design to manufacture, custom manufacturing website, interactive design studio, manufacturability validation, RFQ automation, configure to order, Design360, ISOXPERT" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://isoxpert.com/design360.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ISOXPERT" />
+  <meta property="og:title" content="Design360 — Turn Your Manufacturing Website Into an Interactive Design Studio" />
+  <meta property="og:description" content="Let customers configure, visualize and specify custom products online — before they request a quotation. From customer idea to manufacturable specification." />
+  <meta property="og:url" content="https://isoxpert.com/design360.html" />
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_134058_db3dc2a8-be7d-4942-b23c-dd8c9ae0d6cb.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Design360 — Turn Your Manufacturing Website Into an Interactive Design Studio" />
+  <meta name="twitter:description" content="Let customers configure, visualize and specify custom products online — before they request a quotation." />
+  <meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_134058_db3dc2a8-be7d-4942-b23c-dd8c9ae0d6cb.png" />
+
+  <link rel="stylesheet" href="/standards.css" />
+  <style>
+    .flow-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 32px 0; }
+    .flow-step { background: #fff; border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: var(--radius); padding: 10px 18px; font-weight: 600; font-size: 14.5px; color: var(--navy); white-space: nowrap; }
+    .flow-arrow { color: var(--muted); font-size: 16px; }
+    @media (max-width: 700px) { .flow-chain { gap: 6px; } .flow-step { font-size: 13px; padding: 8px 12px; } }
+
+    .pill-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pill-cloud span { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 20px; background: #fff; font-size: 14px; font-weight: 600; color: var(--navy); }
+
+    .studio-mock { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .studio-mock .studio-row { padding: 22px 24px; }
+    .studio-mock .studio-row + .studio-row { border-top: 1px solid var(--line); }
+    .studio-mock .studio-name { display: block; font-family: var(--font-head); font-weight: 800; font-size: 15px; letter-spacing: -0.01em; color: var(--ink); transition: color .15s; }
+    .studio-mock a.studio-name:hover { color: var(--accent); }
+    .studio-mock .studio-powered { font-size: 11.5px; color: var(--muted); margin-top: 4px; letter-spacing: .04em; text-transform: uppercase; }
+
+    /* ---------- Hero product screenshot ---------- */
+    .d360-hero-top { max-width: 760px; padding: 72px 0 0; }
+    .d360-tagline { margin-top: 14px; font-weight: 700; color: var(--navy); font-size: 16px; }
+
+    .d360-shot-frame { position: relative; margin: 56px 0 96px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff;
+      box-shadow: 0 30px 60px -30px rgba(10,30,63,.3); }
+    .d360-shot-bar { display: flex; gap: 7px; align-items: center; padding: 14px 18px; background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+    .d360-shot-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .d360-shot-frame img { display: block; width: 100%; height: auto; }
+
+    .d360-inset-card { position: absolute; right: -24px; bottom: -36px; width: 300px; background: #fff; border: 1px solid var(--line); border-radius: 8px;
+      box-shadow: 0 24px 48px -20px rgba(10,30,63,.35); padding: 10px; }
+    .d360-inset-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin-bottom: 8px; padding-left: 2px; }
+    .d360-inset-card img { display: block; width: 100%; height: auto; border-radius: 4px; }
+
+    @media (max-width: 900px) {
+      .d360-shot-frame { margin: 40px 0 64px; }
+      .d360-inset-card { position: static; width: 100%; margin-top: 16px; box-shadow: none; border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 560px) { .d360-hero-top { padding-top: 48px; } }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://isoxpert.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Design360", "item": "https://isoxpert.com/design360.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ISOXPERT Design360",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered product configuration, visualization and design-to-manufacture platform for custom manufacturers — configure, visualize, validate and submit production-ready specifications or RFQs.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free demonstration" },
+    "publisher": { "@type": "Organization", "name": "Company Certification International", "url": "https://companycertification.com/" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is Design360?", "acceptedAnswer": { "@type": "Answer", "text": "Design360 turns a traditional manufacturing website into an interactive Design Studio, letting customers configure products, visualize options, upload artwork, validate requirements and submit production-ready specifications or RFQs." } },
+      { "@type": "Question", "name": "Is Design360 a generic off-the-shelf configurator?", "acceptedAnswer": { "@type": "Answer", "text": "No. We model your products, manufacturing capabilities, design constraints, terminology and commercial workflow to create a Design Studio specific to your business." } },
+      { "@type": "Question", "name": "Which industries can use Design360?", "acceptedAnswer": { "@type": "Answer", "text": "Textiles, elastic, webbing and narrow fabrics; labels, ribbons and garment accessories; packaging and printing; chocolates and custom food products; promotional and branded products; metal and fabricated components; rubber, silicone and moulded products; and other configure-to-order manufacturing." } },
+      { "@type": "Question", "name": "Can Design360 be white-labelled under our own brand?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Design360 can power a fully branded experience integrated directly into your existing website — your customers see your brand, not another software platform." } },
+      { "@type": "Question", "name": "Does Design360 integrate with our existing systems?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Design360 can integrate with your website, CRM, ERP, inventory, production, email, WhatsApp, RFQ, quotation, sample approval and quality control processes." } }
+    ]
+  }
+  </script>
+</head>
+<body class="t-purple">
+
+  <header>
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/#ecosystem">Ecosystem</a>
+        <a href="/#standards">Standards</a>
+        <a href="/partners.html">Partners</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a href="#demo" class="btn btn-primary">Build Your Design Studio</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="wrap"><p class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <span>Design360</span></p></div>
+
+  <!-- Hero -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <div class="d360-hero-top">
+        <span class="eyebrow">ISOXPERT Design360</span>
+        <h1>Turn Your Manufacturing Website Into an Interactive Design Studio</h1>
+        <p class="lead">Let customers configure, visualize and specify custom products online — before they request a quotation.</p>
+        <p class="d360-tagline">From customer idea to manufacturable specification.</p>
+        <div class="lp-cta">
+          <a href="#demo" class="btn btn-primary">Build Your Design Studio →</a>
+          <a href="#how-it-works" class="btn btn-ghost">See How It Works</a>
+        </div>
+      </div>
+
+      <div class="d360-shot-frame">
+        <div class="d360-shot-bar"><span></span><span></span><span></span></div>
+        <img src="/design-studio-configurator.jpg" alt="ISOXPERT Design360 Design Studio — jacquard elastic configurator with live specification, colours and weavability check" width="1600" height="1000" loading="eager" />
+        <div class="d360-inset-card">
+          <div class="d360-inset-label">AI Photorealistic Preview</div>
+          <img src="/design-studio-ai-photo-audit360.jpg" alt="AI-generated photorealistic preview of a woven Audit360 branded elastic sample" width="600" height="220" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Brand. Your Design Studio. — a working example, right under the hero -->
+  <section class="sec soft" style="padding-top:56px;padding-bottom:56px">
+    <div class="wrap">
+      <div class="app-band">
+        <div>
+          <div class="role">A working example</div>
+          <h3>Your Brand. Your Design Studio.</h3>
+          <p>Your customers don't need to see another software platform. Design360 can power a fully branded experience integrated directly into your existing website — like this:</p>
+          <a href="#demo" class="btn btn-primary">Request a Design360 Demo →</a>
+        </div>
+        <div class="studio-mock">
+          <img src="/design-studio-configurator-audit360.jpg" alt="Example Design Studio interface configuring an Audit360-branded jacquard elastic sample" width="1600" height="1000" loading="lazy" style="width:100%;height:auto;display:block;border-bottom:1px solid var(--line)" />
+          <div class="studio-row">
+            <a class="studio-name" href="https://interconverters.com/studio/jacquard" target="_blank" rel="noopener noreferrer">INTERCONVERTERS DESIGN STUDIO ↗</a>
+            <div class="studio-powered">Powered by ISOXPERT Design360</div>
+          </div>
+          <div class="studio-row">
+            <a class="studio-name" href="https://craftychocolates.com/studio" target="_blank" rel="noopener noreferrer">CRAFTY CHOCOLATES DESIGN STUDIO ↗</a>
+            <div class="studio-powered">Powered by ISOXPERT Design360</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- From Enquiry to Manufacturable Specification -->
+  <section class="sec" id="how-it-works">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">How it works</div>
+        <h2>From Enquiry to Manufacturable Specification</h2>
+        <p>Traditional custom manufacturing often starts with emails, drawings, WhatsApp messages and multiple rounds of clarification. Design360 creates a structured digital journey — customers can explore what's possible while your sales and production teams receive clearer, structured requirements.</p>
+      </div>
+      <div class="flow-chain">
+        <span class="flow-step">Configure</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Visualize</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Validate</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Specify</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Quote</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Sample</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Manufacture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Design360 Can Do -->
+  <section class="sec soft" id="capabilities">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Capabilities</div>
+        <h2>What Design360 Can Do</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M1 14h6"/><path d="M9 8h6"/><path d="M17 16h6"/></svg></div>
+          <h4>Interactive Product Configurator</h4>
+          <p>Let customers select dimensions, materials, colours, constructions, finishes, quantities and other product-specific parameters.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/></svg></div>
+          <h4>Live Product Visualization</h4>
+          <p>Show customers how their selections affect the finished product through interactive 2D or 3D visualization.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-12"/><path d="M5 8h4"/><path d="M15 16h4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+          <h4>Artwork &amp; Branding</h4>
+          <p>Allow customers to upload logos, artwork, patterns, monograms and other branding elements directly into the design workflow.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+          <h4>AI Design Review</h4>
+          <p>Analyse customer selections and artwork and provide intelligent recommendations before submission.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h4>Manufacturability Validation</h4>
+          <p>Apply your own production rules, limitations and capabilities to identify potential manufacturing issues before quotation or sampling.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14h6"/><path d="M9 10h6"/></svg></div>
+          <h4>Smart Specifications</h4>
+          <p>Automatically convert customer selections into structured product specifications for sales, engineering and production teams.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h4>RFQ &amp; Sample Requests</h4>
+          <p>Turn completed designs directly into quotation, sample or prototype requests with all relevant specifications attached.</p>
+        </div>
+        <div class="card">
+          <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h4>Indicative Costing &amp; MOQ</h4>
+          <p>Where appropriate, provide indicative pricing, minimum-order quantities and lead-time guidance based on configuration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Built Around Your Manufacturing Process -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Built for your business</div>
+        <h2>Built Around Your Manufacturing Process</h2>
+        <p>Design360 is not an off-the-shelf generic configurator. We model your products, manufacturing capabilities, design constraints, terminology and commercial workflow to create a Design Studio specific to your business. It can be applied to:</p>
+      </div>
+      <div class="pill-cloud">
+        <span>Textiles, elastic, webbing &amp; narrow fabrics</span>
+        <span>Labels, ribbons &amp; garment accessories</span>
+        <span>Packaging &amp; printing</span>
+        <span>Chocolates &amp; custom food products</span>
+        <span>Promotional &amp; branded products</span>
+        <span>Metal &amp; fabricated components</span>
+        <span>Rubber, silicone &amp; moulded products</span>
+        <span>Other configure-to-order manufacturing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Than Website Development -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">The difference</div>
+        <h2>More Than Website Development</h2>
+        <p>A normal website tells customers what you manufacture. Design360 lets them start designing it. Instead of a basic "Request a Quote" form, customers can arrive with an idea and leave with a structured configuration ready for commercial and technical review.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h4 style="color:var(--muted)">Traditional Website</h4>
+          <p style="margin-top:10px;color:var(--slate)">Browse Products → Contact Us → Explain Requirements → Multiple Clarifications → Quote</p>
+        </div>
+        <div class="card" style="border-color:var(--accent)">
+          <h4>Design360</h4>
+          <p style="margin-top:10px;color:var(--slate)">Explore → Design → Visualize → Validate → Generate Specification → Request Quote</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect Design With Your Operations -->
+  <section class="sec soft">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Integrations</div>
+        <h2>Connect Design With Your Operations</h2>
+        <p>Design360 can integrate with your existing digital ecosystem and business processes — creating the foundation for a complete design-to-manufacture digital workflow.</p>
+      </div>
+      <div class="pill-cloud">
+        <span>Website</span><span>CRM</span><span>ERP</span><span>Inventory</span><span>Production</span>
+        <span>Email</span><span>WhatsApp</span><span>RFQ</span><span>Quotation</span>
+        <span>Sample Approval</span><span>Quality Control</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Designed for Custom Manufacturers -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Why Design360</div>
+        <h2>Designed for Custom Manufacturers</h2>
+        <p>Whether you manufacture woven elastic, custom packaging, branded chocolates or engineered components, Design360 helps turn complex customization into a guided customer experience.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h4>Reduce</h4><p>Manual enquiries, incomplete specifications and repetitive clarification.</p></div>
+        <div class="card"><h4>Improve</h4><p>Customer engagement, specification accuracy and quotation quality.</p></div>
+        <div class="card"><h4>Accelerate</h4><p>Design approval, sampling and RFQ turnaround.</p></div>
+        <div class="card"><h4>Differentiate</h4><p>Your manufacturing business with an interactive digital buying experience.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec soft">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">FAQ</div>
+        <h2>Design360 questions</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>What is Design360?</summary><p>Design360 turns a traditional manufacturing website into an interactive Design Studio, letting customers configure products, visualize options, upload artwork, validate requirements and submit production-ready specifications or RFQs.</p></details>
+        <details><summary>Is Design360 a generic off-the-shelf configurator?</summary><p>No. We model your products, manufacturing capabilities, design constraints, terminology and commercial workflow to create a Design Studio specific to your business.</p></details>
+        <details><summary>Which industries can use Design360?</summary><p>Textiles, elastic, webbing and narrow fabrics; labels, ribbons and garment accessories; packaging and printing; chocolates and custom food products; promotional and branded products; metal and fabricated components; rubber, silicone and moulded products; and other configure-to-order manufacturing.</p></details>
+        <details><summary>Can Design360 be white-labelled under our own brand?</summary><p>Yes. Design360 can power a fully branded experience integrated directly into your existing website — your customers see your brand, not another software platform.</p></details>
+        <details><summary>Does Design360 integrate with our existing systems?</summary><p>Yes. Design360 can integrate with your website, CRM, ERP, inventory, production, email, WhatsApp, RFQ, quotation, sample approval and quality control processes.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo request -->
+  <section class="sec" id="demo">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <div class="kicker">Request a demo</div>
+          <h2>Build Your Own Digital Design Studio</h2>
+          <p>Give customers a better way to communicate exactly what they need — and give your team better information to manufacture it. Tell us about your products and process, and we'll show you how Design360 would work for your business.</p>
+          <p style="margin-bottom:6px;font-size:14px">Prefer email? Reach us directly:</p>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" class="contact-email">info@companycertification.com</a>
+        </div>
+
+        <form class="demo-form" id="design360Form" novalidate>
+          <input type="hidden" name="access_key" value="8356636d-cd5a-4350-8e18-e4da75650451" />
+          <input type="hidden" name="subject" value="New Design360 demo request" />
+          <input type="hidden" name="from_name" value="ISOXPERT Website" />
+          <input type="hidden" name="source" value="design360-landing" />
+          <input type="hidden" name="cc" value="companycertification@gmail.com" />
+          <input type="checkbox" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="frow">
+            <div class="field">
+              <label for="d3-name">Full name*</label>
+              <input id="d3-name" name="name" required placeholder="Your name" />
+            </div>
+            <div class="field">
+              <label for="d3-email">Work email*</label>
+              <input id="d3-email" type="email" name="email" required placeholder="you@company.com" />
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="d3-company">Manufacturing business</label>
+              <input id="d3-company" name="company" placeholder="Company name" />
+            </div>
+            <div class="field">
+              <label for="d3-website">Website</label>
+              <input id="d3-website" name="website" placeholder="https://" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="d3-industry">What do you manufacture?</label>
+            <select id="d3-industry" name="industry">
+              <option value="">Select one</option>
+              <option>Textiles, elastic, webbing &amp; narrow fabrics</option>
+              <option>Labels, ribbons &amp; garment accessories</option>
+              <option>Packaging &amp; printing</option>
+              <option>Chocolates &amp; custom food products</option>
+              <option>Promotional &amp; branded products</option>
+              <option>Metal &amp; fabricated components</option>
+              <option>Rubber, silicone &amp; moulded products</option>
+              <option>Other configure-to-order manufacturing</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="d3-msg">Tell us about your products</label>
+            <textarea id="d3-msg" name="message" rows="3" placeholder="What do customers usually need to configure? (optional)"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="design360Btn">Request a Design360 demo</button>
+          <p class="form-status" id="design360Status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>From customer idea to manufacturable specification.</h2>
+        <p>Give customers a better way to communicate exactly what they need — and give your team better information to manufacture it.</p>
+        <div class="cta-actions">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" class="btn btn-white">Talk to ISOXPERT</a>
+          <a href="#demo" class="btn btn-outline-light">Request a Design360 Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
+          <p class="about">The digital wing of <a href="https://companycertification.com/" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">Company Certification International</a> — an accredited certification body since 1997, now AI-powered.</p>
+          <p class="about" style="margin-top:10px">Contact: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@companycertification.com</a></p>
+        </div>
+        <div>
+          <h5>Certification</h5>
+          <ul>
+            <li><a href="/iso-9001-certification.html">ISO 9001</a></li>
+            <li><a href="/iso-9001-certification-pakistan.html">ISO 9001 (Pakistan)</a></li>
+            <li><a href="/iso-14001-certification.html">ISO 14001</a></li>
+            <li><a href="/iso-27001-certification.html">ISO 27001</a></li>
+            <li><a href="/iso-22000-certification.html">ISO 22000</a></li>
+            <li><a href="/iso-documentation.html">ISO Documentation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="/design360.html">Design360</a></li>
+            <li><a href="https://compliance360.isoxpert.com" target="_blank" rel="noopener noreferrer">Compliance360</a></li>
+            <li><a href="https://inspect360suite.com" target="_blank" rel="noopener noreferrer">Inspection360</a></li>
+            <li><span style="opacity:.55">QC360 · soon</span></li>
+            <li><span style="opacity:.55">Audit360 · soon</span></li>
+            <li><a href="/partners.html">Partner Program</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="yr">2026</span> ISOXPERT. All rights reserved.</span>
+        <span>One Platform. Unlimited Possibilities. Total Compliance.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    (function () {
+      var f = document.getElementById('design360Form');
+      if (!f) return;
+      var s = document.getElementById('design360Status');
+      var b = document.getElementById('design360Btn');
+      var loadedAt = Date.now();
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        s.textContent = ''; s.className = 'form-status';
+        if (f.querySelector('[name=botcheck]').checked) return;
+        if (Date.now() - loadedAt < 2500) { s.textContent = 'Please take a moment before submitting.'; s.className = 'form-status err'; return; }
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        var original = b.textContent; b.disabled = true; b.textContent = 'Sending…';
+        var data = Object.fromEntries(new FormData(f).entries());
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json(); }).then(function (j) {
+          if (j.success) { s.textContent = 'Thank you! We\'ll be in touch to schedule your Design360 demo.'; s.className = 'form-status ok'; f.reset(); }
+          else { s.textContent = 'Something went wrong. Please email info@companycertification.com.'; s.className = 'form-status err'; }
+        }).catch(function () { s.textContent = 'Network error. Please email info@companycertification.com.'; s.className = 'form-status err'; })
+        .finally(function () { b.disabled = false; b.textContent = original; });
+      });
+    })();
+  </script>
+
+  <!-- Vercel Web Analytics + Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    (function () {
+      var b = document.getElementById('menuBtn'), n = document.getElementById('navLinks');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      n.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+  </script>
+</body>
+</html>

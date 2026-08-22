@@ -91,10 +91,11 @@
     "@type": "ItemList",
     "name": "ISOXPERT Platform Ecosystem",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ISOXPERT Compliance360", "description": "Governance, Risk & Compliance management platform.", "url": "https://compliance360.isoxpert.com" },
-      { "@type": "ListItem", "position": 2, "name": "ISOXPERT Inspection360", "description": "Smart inspection management platform.", "url": "https://inspect360suite.com" },
-      { "@type": "ListItem", "position": 3, "name": "ISOXPERT QC360", "description": "Quality control & product conformance platform.", "url": "https://qc360.isoxpert.com/" },
-      { "@type": "ListItem", "position": 4, "name": "ISOXPERT Audit360", "description": "Certification audit management platform.", "url": "https://audit360.isoxpert.com/" }
+      { "@type": "ListItem", "position": 1, "name": "ISOXPERT Design360", "description": "Interactive product configuration, visualization and design-to-manufacture platform.", "url": "https://isoxpert.com/design360.html" },
+      { "@type": "ListItem", "position": 2, "name": "ISOXPERT Compliance360", "description": "Governance, Risk & Compliance management platform.", "url": "https://compliance360.isoxpert.com" },
+      { "@type": "ListItem", "position": 3, "name": "ISOXPERT Inspection360", "description": "Smart inspection management platform.", "url": "https://inspect360suite.com" },
+      { "@type": "ListItem", "position": 4, "name": "ISOXPERT QC360", "description": "Quality control & product conformance platform.", "url": "https://qc360.isoxpert.com/" },
+      { "@type": "ListItem", "position": 5, "name": "ISOXPERT Audit360", "description": "Certification audit management platform.", "url": "https://audit360.isoxpert.com/" }
     ]
   }
   </script>
@@ -108,6 +109,7 @@
       --green: #16A34A;
       --orange: #EA580C;
       --purple: #7C3AED;
+      --teal: #0D9488;
       --ink: #16181D;
       --slate: #4B5563;
       --muted: #6B7280;
@@ -229,7 +231,7 @@
     .sec-head p { color: var(--slate); font-size: 17px; max-width: 680px; }
 
     /* ---------- App cards ---------- */
-    .apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .app-card {
       background: #fff; border: 1px solid var(--line); border-top: 2px solid var(--navy); border-radius: var(--radius);
       padding: 30px 26px; display: flex; flex-direction: column;
@@ -252,6 +254,7 @@
     .c-green { --accent: var(--green); --accent-soft: rgba(22,163,74,.08); }
     .c-orange { --accent: var(--orange); --accent-soft: rgba(234,88,12,.09); }
     .c-purple { --accent: var(--purple); --accent-soft: rgba(124,58,237,.08); }
+    .c-teal { --accent: var(--teal); --accent-soft: rgba(13,148,136,.08); }
 
     /* ---------- Features ---------- */
     .features-sec { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -505,11 +508,26 @@
     <div class="wrap">
       <div class="sec-head">
         <div class="kicker">Our Ecosystem</div>
-        <h2>Four connected platforms. One source of truth.</h2>
+        <h2>Five connected platforms. One source of truth.</h2>
         <p>Each app works on its own and gets smarter together — sharing your standards, documents and data across the entire compliance lifecycle.</p>
       </div>
 
       <div class="apps">
+        <!-- Design360 (LIVE) -->
+        <a class="app-card c-teal" href="/design360.html">
+          <div class="app-ico">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-12"/><path d="M5 8h4"/><path d="M15 16h4"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          </div>
+          <h3>ISOXPERT <small>Design360</small></h3>
+          <div class="role">Design Studio</div>
+          <p>Turn your manufacturing website into an interactive Design Studio. Customers configure, visualize and specify custom products online — before they request a quotation.</p>
+          <div class="app-foot">
+            <span class="link">Open app →</span>
+            <span class="tag-live">● Live</span>
+          </div>
+          <div class="app-foot" style="margin-top:6px"><span class="domain">isoxpert.com/design360.html</span></div>
+        </a>
+
         <!-- Compliance (LIVE) -->
         <a class="app-card c-blue" href="https://compliance360.isoxpert.com" target="_blank" rel="noopener noreferrer">
           <div class="app-ico">
