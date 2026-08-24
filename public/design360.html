@@ -40,11 +40,16 @@
     .pill-cloud span { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 20px; background: #fff; font-size: 14px; font-weight: 600; color: var(--navy); }
 
     .studio-mock { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-    .studio-mock .studio-row { padding: 22px 24px; }
+    .studio-mock .studio-row { padding: 22px 24px; cursor: default; transition: background .15s; }
     .studio-mock .studio-row + .studio-row { border-top: 1px solid var(--line); }
+    .studio-mock .studio-row:hover { background: var(--bg-soft); }
     .studio-mock .studio-name { display: block; font-family: var(--font-head); font-weight: 800; font-size: 15px; letter-spacing: -0.01em; color: var(--ink); transition: color .15s; }
     .studio-mock a.studio-name:hover { color: var(--accent); }
     .studio-mock .studio-powered { font-size: 11.5px; color: var(--muted); margin-top: 4px; letter-spacing: .04em; text-transform: uppercase; }
+
+    .studio-shot { position: relative; width: 100%; aspect-ratio: 1600 / 1000; border-bottom: 1px solid var(--line); background: var(--bg-soft); }
+    .studio-shot-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .5s ease; }
+    .studio-shot-img.active { opacity: 1; }
 
     /* ---------- Hero product screenshot ---------- */
     .d360-hero-top { max-width: 760px; padding: 72px 0 0; }
@@ -158,16 +163,20 @@
           <a href="#demo" class="btn btn-primary">Request a Design360 Demo →</a>
         </div>
         <div class="studio-mock">
-          <img src="/design-studio-configurator-audit360.jpg" alt="Example Design Studio interface configuring an Audit360-branded jacquard elastic sample" width="1600" height="1000" loading="lazy" style="width:100%;height:auto;display:block;border-bottom:1px solid var(--line)" />
-          <div class="studio-row">
+          <div class="studio-shot">
+            <img class="studio-shot-img active" data-studio="interconverters" src="/design-studio-configurator-audit360.jpg" alt="Interconverters Design Studio — jacquard elastic configurator" width="1600" height="1000" loading="lazy" />
+            <img class="studio-shot-img" data-studio="crafty" src="/design-studio-crafty-chocolates.jpg" alt="Crafty Chocolates Design Studio — custom mold configurator" width="1600" height="1000" loading="lazy" />
+            <img class="studio-shot-img" data-studio="lithocraft" src="/design-studio-lithocraft.jpg" alt="Lithocraft Design Studio — packaging configurator" width="1600" height="1000" loading="lazy" />
+          </div>
+          <div class="studio-row" data-studio="interconverters">
             <a class="studio-name" href="https://interconverters.com/studio/jacquard" target="_blank" rel="noopener noreferrer">INTERCONVERTERS DESIGN STUDIO ↗</a>
             <div class="studio-powered">Powered by ISOXPERT Design360</div>
           </div>
-          <div class="studio-row">
+          <div class="studio-row" data-studio="crafty">
             <a class="studio-name" href="https://craftychocolates.com/studio" target="_blank" rel="noopener noreferrer">CRAFTY CHOCOLATES DESIGN STUDIO ↗</a>
             <div class="studio-powered">Powered by ISOXPERT Design360</div>
           </div>
-          <div class="studio-row">
+          <div class="studio-row" data-studio="lithocraft">
             <a class="studio-name" href="https://lithocraftprinters.com.pk/design-studio" target="_blank" rel="noopener noreferrer">LITHOCRAFT DESIGN STUDIO ↗</a>
             <div class="studio-powered">Powered by ISOXPERT Design360</div>
           </div>
@@ -504,6 +513,27 @@
       });
       n.addEventListener('click', function (e) {
         if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+    (function () {
+      var mock = document.querySelector('.studio-mock');
+      if (!mock) return;
+      var rows = mock.querySelectorAll('.studio-row');
+      var shots = mock.querySelectorAll('.studio-shot-img');
+      // A shot whose image 404s (e.g. not uploaded yet) is marked broken so
+      // hovering its row never swaps in a blank/broken frame.
+      shots.forEach(function (img) {
+        img.addEventListener('error', function () { img.dataset.broken = '1' })
+      })
+      rows.forEach(function (row) {
+        row.addEventListener('mouseenter', function () {
+          var key = row.getAttribute('data-studio');
+          var target = mock.querySelector('.studio-shot-img[data-studio="' + key + '"]');
+          if (!target || target.dataset.broken) return;
+          shots.forEach(function (img) {
+            img.classList.toggle('active', img === target);
+          });
+        });
       });
     })();
   </script>
