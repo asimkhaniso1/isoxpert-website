@@ -398,7 +398,6 @@
           <input type="hidden" name="subject" value="New ISOXPERT partner application" />
           <input type="hidden" name="from_name" value="ISOXPERT Website" />
           <input type="hidden" name="source" value="partners-application" />
-          <input type="hidden" name="cc" value="companycertification@gmail.com" />
           <input type="checkbox" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="frow">
             <input type="text" name="name" required placeholder="Your name" aria-label="Your name" />
@@ -444,8 +443,8 @@
       <div class="foot-grid">
         <div>
           <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
-          <p class="about">The digital wing of <a href="https://companycertification.com/" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">Company Certification International</a> — an accredited certification body since 1997, now AI-powered.</p>
-          <p class="about" style="margin-top:10px">Contact: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@companycertification.com</a></p>
+          <p class="about">Built on 28 years of management-systems consulting and audit practice — est. Karachi, Pakistan, 1997. Now AI-powered.</p>
+          <p class="about" style="margin-top:10px">Contact: <a href="mailto:info@isoxpert.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@isoxpert.com</a></p>
         </div>
         <div>
           <h5>Certification</h5>
@@ -467,6 +466,7 @@
             <li><span style="opacity:.55">Audit360 · soon</span></li>
             <li><a href="/quickbooks-iif-converter.html">QuickBooks Converter</a></li>
             <li><a href="/partners.html">Partner Program</a></li>
+            <li><a href="/cb-partnership.html">CB Partnership</a></li>
           </ul>
         </div>
       </div>
@@ -493,27 +493,14 @@
         if (!f.checkValidity()) { f.reportValidity(); return; }
         var original = b.textContent; b.disabled = true; b.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
-        // Also feed the lead into CCI's admin Partners tab (best-effort — the
-        // Web3Forms email above is the primary channel and isn't blocked by this).
-        fetch('https://companycertification.com/api/submit-form', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            form_name: 'Partner Application',
-            fields: {
-              name: data.name || '', email: data.email || '', company: data.company || '',
-              country: data.country || '', partner_type: data.partner_type || '', message: data.message || ''
-            }
-          })
-        }).catch(function () {});
         fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(data)
         }).then(function (r) { return r.json(); }).then(function (j) {
           if (j.success) { s.textContent = 'Thank you! We\'ll be in touch to schedule a discovery call.'; s.className = 'status ok'; f.reset(); }
-          else { s.textContent = 'Something went wrong. Please email info@companycertification.com.'; s.className = 'status err'; }
-        }).catch(function () { s.textContent = 'Network error. Please email info@companycertification.com.'; s.className = 'status err'; })
+          else { s.textContent = 'Something went wrong. Please email info@isoxpert.com.'; s.className = 'status err'; }
+        }).catch(function () { s.textContent = 'Network error. Please email info@isoxpert.com.'; s.className = 'status err'; })
         .finally(function () { b.disabled = false; b.textContent = original; });
       });
     })();

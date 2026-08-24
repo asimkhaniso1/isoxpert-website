@@ -188,7 +188,7 @@
           </div>
           <input type="text" name="standard_interest" placeholder="Which standard? (optional)" aria-label="Which standard" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;font:inherit;font-size:14px;margin-top:10px" />
           <button type="submit" class="btn btn-primary" id="reqBtn" style="justify-content:center;margin-top:10px">Get early access</button>
-          <p class="note">By subscribing you agree to receive occasional emails from Company Certification International.</p>
+          <p class="note">By subscribing you agree to receive occasional emails from ISOXPERT.</p>
           <p class="status" id="reqStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -200,8 +200,8 @@
       <div class="foot-grid">
         <div>
           <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
-          <p class="about">The digital wing of <a href="https://companycertification.com/" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">Company Certification International</a> — an accredited certification body since 1997, now AI-powered.</p>
-          <p class="about" style="margin-top:10px">Contact: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@companycertification.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@companycertification.com</a></p>
+          <p class="about">Built on 28 years of management-systems consulting and audit practice — est. Karachi, Pakistan, 1997. Now AI-powered.</p>
+          <p class="about" style="margin-top:10px">Contact: <a href="mailto:info@isoxpert.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@isoxpert.com</a></p>
         </div>
         <div>
           <h5>Certification</h5>
@@ -258,8 +258,8 @@
           body: JSON.stringify(data)
         }).then(function (r) { return r.json(); }).then(function (j) {
           if (j.success) { s.textContent = 'Thanks! We\'ll email you as soon as templates are ready.'; s.className = 'status ok'; f.reset(); }
-          else { s.textContent = 'Something went wrong. Please email info@companycertification.com.'; s.className = 'status err'; }
-        }).catch(function () { s.textContent = 'Network error. Please email info@companycertification.com.'; s.className = 'status err'; })
+          else { s.textContent = 'Something went wrong. Please email info@isoxpert.com.'; s.className = 'status err'; }
+        }).catch(function () { s.textContent = 'Network error. Please email info@isoxpert.com.'; s.className = 'status err'; })
         .finally(function () { b.disabled = false; b.textContent = original; });
       });
     })();
