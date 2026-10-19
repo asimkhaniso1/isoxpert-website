@@ -479,6 +479,10 @@
   </footer>
 
   <script>
+    // Primary: Partner Hub application queue (Supabase Edge Function, public, CORS *).
+    // Fallback: Web3Forms email (uses the hidden inputs in #partnerForm).
+    var PARTNER_APPLICATION_ENDPOINT = 'https://xvmysyqxvouhplyapttt.supabase.co/functions/v1/partner-application';
+    var WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
     document.getElementById('yr').textContent = new Date().getFullYear();
     (function () {
       var f = document.getElementById('partnerForm');
@@ -486,6 +490,50 @@
       var s = document.getElementById('partnerStatus');
       var b = document.getElementById('partnerBtn');
       var loadedAt = Date.now();
+      var TIER_MAP = {
+        'Affiliate Partner': 'affiliate',
+        'Territory Partner': 'territory',
+        'Country Master Partner': 'country_master'
+      };
+      function val(name) {
+        var el = f.querySelector('[name=' + name + ']');
+        return el && el.value ? String(el.value).trim() : '';
+      }
+      function buildHubPayload() {
+        var p = {
+          name: val('name'),
+          email: val('email'),
+          company: val('company'),
+          country: val('country'),
+          message: val('message'),
+          source: 'isoxpert.com'
+        };
+        var tier = TIER_MAP[val('partner_type')];
+        if (tier) p.partner_type = tier;
+        if (f.querySelector('[name=botcheck]').checked) p._gotcha = '1';
+        return p;
+      }
+      // Resolves true only on a 2xx response whose JSON body has success:true.
+      function submitToHub(payload) {
+        return fetch(PARTNER_APPLICATION_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (!r.ok) return false;
+          return r.json().then(function (j) { return !!(j && j.success === true); }, function () { return false; });
+        }, function () { return false; });
+      }
+      // Resolves 'ok', 'fail' (server said no) or 'network' (request failed).
+      function submitToWeb3Forms(data) {
+        return fetch(WEB3FORMS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (r) { return r.json(); }).then(function (j) {
+          return j && j.success ? 'ok' : 'fail';
+        }, function () { return 'network'; });
+      }
       f.addEventListener('submit', function (e) {
         e.preventDefault();
         s.textContent = ''; s.className = 'status';
@@ -494,12 +542,14 @@
         if (!f.checkValidity()) { f.reportValidity(); return; }
         var original = b.textContent; b.disabled = true; b.textContent = 'Sending…';
         var data = Object.fromEntries(new FormData(f).entries());
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
-        }).then(function (r) { return r.json(); }).then(function (j) {
-          if (j.success) { s.textContent = 'Thank you! We\'ll be in touch to schedule a discovery call.'; s.className = 'status ok'; f.reset(); }
+        var payload = buildHubPayload();
+        submitToHub(payload).then(function (hubOk) {
+          if (hubOk) return 'ok';
+          // Hub unavailable or rejected: fall back to Web3Forms so no lead is lost.
+          return submitToWeb3Forms(data);
+        }).then(function (result) {
+          if (result === 'ok') { s.textContent = 'Thank you! We\'ll be in touch to schedule a discovery call.'; s.className = 'status ok'; f.reset(); }
+          else if (result === 'network') { s.textContent = 'Network error. Please email info@isoxpert.com.'; s.className = 'status err'; }
           else { s.textContent = 'Something went wrong. Please email info@isoxpert.com.'; s.className = 'status err'; }
         }).catch(function () { s.textContent = 'Network error. Please email info@isoxpert.com.'; s.className = 'status err'; })
         .finally(function () { b.disabled = false; b.textContent = original; });
@@ -557,5 +607,6 @@
       });
     })();
   </script>
+  <script defer src="/partner-ref.js"></script>
 </body>
 </html>
