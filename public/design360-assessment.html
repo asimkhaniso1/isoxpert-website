@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A1830" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" /></noscript>
+
+  <title>Request a Design360 Assessment — Customer Discovery &amp; Technology Gap Assessment | ISOXPERT</title>
+  <meta name="description" content="Request a Design360 Assessment. Tell us about your products, RFQ process, systems and hosting needs — we'll follow up with a discovery call and, if it's a fit, a paid pilot recommendation." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://isoxpert.com/design360-assessment.html" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ISOXPERT" />
+  <meta property="og:title" content="Request a Design360 Assessment" />
+  <meta property="og:description" content="A short discovery and technology gap assessment for custom manufacturers — followed by a discovery call and, if it's a fit, a paid pilot recommendation." />
+  <meta property="og:url" content="https://isoxpert.com/design360-assessment.html" />
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_134058_db3dc2a8-be7d-4942-b23c-dd8c9ae0d6cb.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Request a Design360 Assessment" />
+  <meta name="twitter:description" content="A short discovery and technology gap assessment for custom manufacturers." />
+  <meta name="twitter:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3GdSRDJAZtHHIPui1cF4jrrv45o/hf_20260719_134058_db3dc2a8-be7d-4942-b23c-dd8c9ae0d6cb.png" />
+
+  <link rel="stylesheet" href="/standards.css" />
+  <style>
+    [hidden] { display: none !important; }
+
+    .d360-hero-top { max-width: 760px; padding: 72px 0 80px; position: relative; }
+    @media (max-width: 560px) { .d360-hero-top { padding: 48px 0 56px; } }
+
+    /* ---------- Layout ---------- */
+    .assess-grid { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start; }
+    .assess-aside { position: sticky; top: 92px; }
+    .assess-aside h2 { font-size: 20px; color: var(--ink); letter-spacing: -0.015em; margin: 14px 0 16px; }
+    .assess-steps { list-style: none; counter-reset: step; border-top: 2px solid var(--ink); }
+    .assess-steps li { counter-increment: step; display: grid; grid-template-columns: 34px 1fr; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; color: var(--slate); line-height: 1.55; }
+    .assess-steps li::before { content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 2px; }
+    .assess-steps b { color: var(--ink); }
+    .no-files { margin-top: 22px; border-left: 3px solid var(--ink); padding: 4px 0 4px 14px; font-size: 14px; color: var(--ink); font-weight: 600; }
+    @media (max-width: 900px) {
+      .assess-grid { grid-template-columns: 1fr; gap: 36px; }
+      .assess-aside { position: static; }
+    }
+
+    /* ---------- Form (sharp, editorial) ---------- */
+    .assess-form { display: flex; flex-direction: column; gap: 48px; min-width: 0; }
+    .assess-form fieldset { border: none; margin: 0; padding: 0; min-width: 0; }
+    .assess-form .sec-set { border-top: 2px solid var(--ink); padding-top: 22px; }
+    .assess-form .sec-set > legend { float: left; width: 100%; padding: 0; margin-bottom: 22px; font-family: var(--font-head); font-size: 21px; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); }
+    .assess-form .sec-set > legend .step { display: block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .assess-form .sec-set > legend + * { clear: both; }
+    .assess-form .sec-body { display: flex; flex-direction: column; gap: 22px; clear: both; }
+
+    .assess-form .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .assess-form .frow-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .assess-form .field { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+    .assess-form .field > label, .assess-form .q > legend { font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: .01em; padding: 0; }
+    .assess-form .q > legend { margin-bottom: 10px; }
+    .assess-form .req { color: var(--accent); }
+    .assess-form .hint { font-size: 12.5px; color: var(--muted); font-weight: 400; }
+
+    .assess-form input[type=text], .assess-form input[type=email], .assess-form input[type=tel],
+    .assess-form select, .assess-form textarea {
+      width: 100%; padding: 11px 13px; border: 1px solid #C9D3E1; border-radius: 2px; font: inherit; font-size: 14.5px;
+      background: #fff; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .assess-form input:focus, .assess-form select:focus, .assess-form textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .assess-form textarea { resize: vertical; min-height: 96px; }
+
+    .opt-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .opt { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #C9D3E1; border-radius: 2px; padding: 9px 14px; font-size: 14px; color: var(--ink); background: #fff; cursor: pointer; transition: border-color .15s, background .15s; line-height: 1.3; }
+    .opt:hover { border-color: var(--ink); }
+    .opt input { margin: 0; width: 16px; height: 16px; accent-color: var(--accent); flex: none; }
+    .opt:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+    .opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .export-set { background: var(--bg-soft); border: 1px solid var(--line) !important; border-top: 2px solid var(--ink) !important; padding: 22px 22px 24px !important; }
+    .notice-amber { border: 1px solid #F59E0B; border-left: 4px solid #D97706; background: #FFFBEB; color: #78350F; padding: 16px 18px; font-size: 14.5px; line-height: 1.6; }
+    .notice-amber b { color: #78350F; }
+    .notice-amber p + p { margin-top: 6px; }
+
+    .consent { display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start; font-size: 14px; color: var(--ink); cursor: pointer; }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); }
+
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .assess-submit { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-top: 2px solid var(--ink); padding-top: 24px; }
+    .assess-submit .btn:disabled { opacity: .6; cursor: default; }
+
+    .assess-done { border-top: 2px solid var(--ink); padding-top: 26px; outline: none; }
+    .assess-done h2 { font-size: clamp(24px, 3vw, 32px); color: var(--ink); letter-spacing: -0.025em; line-height: 1.15; margin: 14px 0 14px; }
+    .assess-done p { color: var(--slate); font-size: 16px; margin-bottom: 12px; max-width: 640px; }
+    .assess-done .notice-amber p { color: #78350F; font-size: 15px; margin-bottom: 0; }
+
+    @media (max-width: 640px) {
+      .assess-form .frow, .assess-form .frow-3 { grid-template-columns: 1fr; }
+      .export-set { padding: 18px 16px 20px !important; }
+      .opt { padding: 9px 12px; }
+      .assess-submit .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://isoxpert.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Design360", "item": "https://isoxpert.com/design360.html" },
+      { "@type": "ListItem", "position": 3, "name": "Request a Design360 Assessment", "item": "https://isoxpert.com/design360-assessment.html" }
+    ]
+  }
+  </script>
+</head>
+<body class="t-purple">
+
+  <header>
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/#ecosystem">Ecosystem</a>
+        <a href="/#standards">Standards</a>
+        <a href="/partners.html">Partners</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+      <a href="#assessment" class="btn btn-primary">Start the Assessment</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="wrap"><p class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/design360.html">Design360</a> &nbsp;/&nbsp; <span>Assessment</span></p></div>
+
+  <!-- Hero -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <div class="d360-hero-top">
+        <span class="eyebrow">ISOXPERT Design360</span>
+        <h1>Request a Design360 Assessment</h1>
+        <p class="lead">A short Customer Discovery &amp; Technology Gap Assessment for custom manufacturers. Tell us how customers specify your products today, which systems you run and how you need it hosted. We'll review your answers, book a discovery call, and, if Design360 is a fit, recommend a paid pilot.</p>
+        <div class="lp-cta">
+          <a href="#assessment" class="btn btn-primary">Start the Assessment →</a>
+          <a href="/design360.html" class="btn btn-ghost">About Design360</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="assessment">
+    <div class="wrap">
+      <div class="assess-grid">
+
+        <aside class="assess-aside">
+          <div class="kicker">What happens next</div>
+          <h2>From this form to a pilot</h2>
+          <ol class="assess-steps">
+            <li><span><b>We review your answers</b> against your products, systems and hosting needs.</span></li>
+            <li><span><b>Discovery call.</b> We contact you to walk through your RFQ process and requirements.</span></li>
+            <li><span><b>Pilot recommendation.</b> If it's a fit, we recommend a paid pilot for one product family.</span></li>
+          </ol>
+          <p class="no-files">Please don't send drawings or files through this form.</p>
+        </aside>
+
+        <div>
+          <form class="assess-form" id="assessForm" novalidate>
+            <input type="checkbox" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <!-- Step 1: export-control screening -->
+            <fieldset class="sec-set export-set">
+              <legend><span class="step">Step 1 · Export-control screening</span>Before we start</legend>
+              <div class="sec-body">
+                <fieldset class="q">
+                  <legend>Does your technical data include export-controlled information (ITAR, EAR or CUI), or do you have CMMC requirements? <span class="req" aria-hidden="true">*</span></legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="export_controlled" value="yes" required /> Yes</label>
+                    <label class="opt"><input type="radio" name="export_controlled" value="no" required /> No</label>
+                    <label class="opt"><input type="radio" name="export_controlled" value="unsure" required /> Unsure</label>
+                  </div>
+                </fieldset>
+                <div class="notice-amber" id="exportNotice" role="alert" hidden>
+                  <p><b>This project can't use the shared Design360 environment.</b></p>
+                  <p>Projects that involve export-controlled data (ITAR, EAR or CUI) or CMMC requirements need a dedicated environment. ISOXPERT will contact you about a dedicated environment. <b>Do not send drawings or technical data</b> through this form or by email. You can still submit the rest of this assessment.</p>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- A. Company and contact -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section A</span>Company and contact</legend>
+              <div class="sec-body">
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-company">Company <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="as-company" name="company" required maxlength="200" autocomplete="organization" />
+                  </div>
+                  <div class="field">
+                    <label for="as-website">Website</label>
+                    <input type="text" id="as-website" name="website" maxlength="200" inputmode="url" autocomplete="url" placeholder="https://" />
+                  </div>
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-contact-name">Contact name <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="as-contact-name" name="contact_name" required maxlength="200" autocomplete="name" />
+                  </div>
+                  <div class="field">
+                    <label for="as-contact-role">Role</label>
+                    <input type="text" id="as-contact-role" name="contact_role" maxlength="200" autocomplete="organization-title" />
+                  </div>
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-email">Work email <span class="req" aria-hidden="true">*</span></label>
+                    <input type="email" id="as-email" name="email" required maxlength="200" autocomplete="email" placeholder="you@company.com" />
+                  </div>
+                  <div class="field">
+                    <label for="as-phone">Phone</label>
+                    <input type="tel" id="as-phone" name="phone" maxlength="200" autocomplete="tel" />
+                  </div>
+                </div>
+                <div class="frow frow-3">
+                  <div class="field">
+                    <label for="as-location">City / region</label>
+                    <input type="text" id="as-location" name="location" maxlength="200" autocomplete="address-level2" />
+                  </div>
+                  <div class="field">
+                    <label for="as-country">Country</label>
+                    <select id="as-country" name="country" autocomplete="country">
+                      <option value="">Select country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="MX">Mexico</option>
+                      <option value="GB">United Kingdom</option>
+                      <option value="IE">Ireland</option>
+                      <option value="DE">Germany</option>
+                      <option value="FR">France</option>
+                      <option value="NL">Netherlands</option>
+                      <option value="BE">Belgium</option>
+                      <option value="IT">Italy</option>
+                      <option value="ES">Spain</option>
+                      <option value="PT">Portugal</option>
+                      <option value="PL">Poland</option>
+                      <option value="SE">Sweden</option>
+                      <option value="CH">Switzerland</option>
+                      <option value="TR">Türkiye</option>
+                      <option value="AE">United Arab Emirates</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="QA">Qatar</option>
+                      <option value="OM">Oman</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="BH">Bahrain</option>
+                      <option value="EG">Egypt</option>
+                      <option value="PK">Pakistan</option>
+                      <option value="IN">India</option>
+                      <option value="BD">Bangladesh</option>
+                      <option value="LK">Sri Lanka</option>
+                      <option value="CN">China</option>
+                      <option value="HK">Hong Kong</option>
+                      <option value="TW">Taiwan</option>
+                      <option value="JP">Japan</option>
+                      <option value="KR">South Korea</option>
+                      <option value="SG">Singapore</option>
+                      <option value="MY">Malaysia</option>
+                      <option value="TH">Thailand</option>
+                      <option value="VN">Vietnam</option>
+                      <option value="ID">Indonesia</option>
+                      <option value="PH">Philippines</option>
+                      <option value="AU">Australia</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="NG">Nigeria</option>
+                      <option value="KE">Kenya</option>
+                      <option value="BR">Brazil</option>
+                      <option value="AR">Argentina</option>
+                      <option value="CL">Chile</option>
+                      <option value="CO">Colombia</option>
+                      <option value="">Other (add it under City / region)</option>
+                    </select>
+                  </div>
+                  <div class="field" id="stateUsWrap" hidden>
+                    <label for="as-state-us">State</label>
+                    <select id="as-state-us" name="state_us" autocomplete="address-level1" disabled>
+                      <option value="">Select state</option>
+                      <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option>
+                      <option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option>
+                      <option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option>
+                      <option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+                      <option value="PR">Puerto Rico</option>
+                    </select>
+                  </div>
+                  <div class="field" id="stateOtherWrap">
+                    <label for="as-state-other">State / province code <span class="hint">e.g. ON</span></label>
+                    <input type="text" id="as-state-other" name="state_other" maxlength="3" autocapitalize="characters" pattern="[A-Za-z0-9]{1,3}" title="Use the 1–3 character state or province code, e.g. ON" />
+                  </div>
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-industry">Industry / what you manufacture</label>
+                    <input type="text" id="as-industry" name="industry" maxlength="200" placeholder="e.g. Custom packaging" />
+                  </div>
+                  <div class="field">
+                    <label for="as-employees">Employees</label>
+                    <select id="as-employees" name="employees">
+                      <option value="">Select range</option>
+                      <option value="1-49">1–49</option>
+                      <option value="50-249">50–249</option>
+                      <option value="250-999">250–999</option>
+                      <option value="1000+">1,000+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- B. Current technology -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section B</span>Current technology</legend>
+              <div class="sec-body">
+                <fieldset class="q">
+                  <legend>Website platform</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="website_platform" value="wordpress" /> WordPress</label>
+                    <label class="opt"><input type="radio" name="website_platform" value="drupal" /> Drupal</label>
+                    <label class="opt"><input type="radio" name="website_platform" value="shopify" /> Shopify</label>
+                    <label class="opt"><input type="radio" name="website_platform" value="custom" /> Custom</label>
+                    <label class="opt"><input type="radio" name="website_platform" value="unsure" /> Unsure</label>
+                  </div>
+                </fieldset>
+                <fieldset class="q">
+                  <legend>Current RFQ method</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="rfq_method" value="email" /> Email</label>
+                    <label class="opt"><input type="radio" name="rfq_method" value="web_form" /> Web form</label>
+                    <label class="opt"><input type="radio" name="rfq_method" value="phone" /> Phone</label>
+                    <label class="opt"><input type="radio" name="rfq_method" value="portal" /> Portal</label>
+                    <label class="opt"><input type="radio" name="rfq_method" value="other" /> Other</label>
+                  </div>
+                </fieldset>
+                <div class="field" data-show-when="rfq_method=other" hidden>
+                  <label for="as-rfq-other">Other RFQ method</label>
+                  <input type="text" id="as-rfq-other" name="rfq_method_other" maxlength="200" disabled />
+                </div>
+                <fieldset class="q">
+                  <legend>Other systems <span class="hint">(select all that apply)</span></legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="checkbox" name="other_systems" value="crm" /> CRM</label>
+                    <label class="opt"><input type="checkbox" name="other_systems" value="erp" /> ERP</label>
+                    <label class="opt"><input type="checkbox" name="other_systems" value="cad" /> CAD</label>
+                    <label class="opt"><input type="checkbox" name="other_systems" value="ecommerce" /> E-commerce</label>
+                    <label class="opt"><input type="checkbox" name="other_systems" value="none" /> None</label>
+                  </div>
+                </fieldset>
+                <div class="field">
+                  <label for="as-systems-names">System names <span class="hint">e.g. HubSpot, SAP Business One, SolidWorks</span></label>
+                  <input type="text" id="as-systems-names" name="systems_names" maxlength="200" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- C. Business need -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section C</span>Business need</legend>
+              <div class="sec-body">
+                <div class="field">
+                  <label for="as-customized">Which products are customized?</label>
+                  <textarea id="as-customized" name="customized_products" rows="4" maxlength="2000" placeholder="Describe the products and options customers specify. Please don't paste drawings or controlled technical data."></textarea>
+                </div>
+                <fieldset class="q">
+                  <legend>Inputs required from customers <span class="hint">(select all that apply)</span></legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="size" /> Size</label>
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="material" /> Material</label>
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="color" /> Color</label>
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="artwork" /> Artwork</label>
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="quantity" /> Quantity</label>
+                    <label class="opt"><input type="checkbox" name="inputs_required" value="other" /> Other</label>
+                  </div>
+                </fieldset>
+                <div class="field" data-show-when="inputs_required=other" hidden>
+                  <label for="as-inputs-other">Other inputs</label>
+                  <input type="text" id="as-inputs-other" name="inputs_other" maxlength="200" disabled />
+                </div>
+                <fieldset class="q">
+                  <legend>Monthly custom enquiries</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="monthly_enquiries" value="lt20" /> Fewer than 20</label>
+                    <label class="opt"><input type="radio" name="monthly_enquiries" value="20to100" /> 20–100</label>
+                    <label class="opt"><input type="radio" name="monthly_enquiries" value="gt100" /> More than 100</label>
+                    <label class="opt"><input type="radio" name="monthly_enquiries" value="unknown" /> Unknown</label>
+                  </div>
+                </fieldset>
+                <fieldset class="q">
+                  <legend>Biggest issue today</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="biggest_issue" value="missing_specs" /> Missing specs</label>
+                    <label class="opt"><input type="radio" name="biggest_issue" value="slow_quote" /> Slow quote</label>
+                    <label class="opt"><input type="radio" name="biggest_issue" value="rework" /> Rework</label>
+                    <label class="opt"><input type="radio" name="biggest_issue" value="lost_leads" /> Lost leads</label>
+                    <label class="opt"><input type="radio" name="biggest_issue" value="other" /> Other</label>
+                  </div>
+                </fieldset>
+                <div class="field" data-show-when="biggest_issue=other" hidden>
+                  <label for="as-issue-other">Other issue</label>
+                  <input type="text" id="as-issue-other" name="biggest_issue_other" maxlength="200" disabled />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- D. Studio and integration -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section D</span>Studio and integration</legend>
+              <div class="sec-body">
+                <fieldset class="q">
+                  <legend>Preferred access to the Design Studio</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="preferred_access" value="button" /> Website button</label>
+                    <label class="opt"><input type="radio" name="preferred_access" value="subdomain" /> Branded subdomain</label>
+                    <label class="opt"><input type="radio" name="preferred_access" value="embedded" /> Embedded</label>
+                    <label class="opt"><input type="radio" name="preferred_access" value="unsure" /> Unsure</label>
+                  </div>
+                </fieldset>
+                <div class="frow">
+                  <fieldset class="q">
+                    <legend>Need live pricing?</legend>
+                    <div class="opt-group">
+                      <label class="opt"><input type="radio" name="live_pricing" value="yes" /> Yes</label>
+                      <label class="opt"><input type="radio" name="live_pricing" value="no" /> No</label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="q">
+                    <legend>Need CAD export?</legend>
+                    <div class="opt-group">
+                      <label class="opt"><input type="radio" name="cad_export" value="yes" /> Yes</label>
+                      <label class="opt"><input type="radio" name="cad_export" value="no" /> No</label>
+                    </div>
+                  </fieldset>
+                </div>
+                <fieldset class="q">
+                  <legend>Need an ERP / CRM link?</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="erp_crm_link" value="yes" /> Yes</label>
+                    <label class="opt"><input type="radio" name="erp_crm_link" value="no" /> No</label>
+                  </div>
+                </fieldset>
+                <div class="field" data-show-when="erp_crm_link=yes" hidden>
+                  <label for="as-erp-name">Which ERP / CRM?</label>
+                  <input type="text" id="as-erp-name" name="erp_crm_name" maxlength="200" disabled />
+                </div>
+                <fieldset class="q">
+                  <legend>Typical customer file types <span class="hint">(select all that apply; just the types, please don't attach files)</span></legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="checkbox" name="file_types" value="pdf" /> PDF</label>
+                    <label class="opt"><input type="checkbox" name="file_types" value="dxf_dwg" /> DXF / DWG</label>
+                    <label class="opt"><input type="checkbox" name="file_types" value="step_iges" /> STEP / IGES</label>
+                    <label class="opt"><input type="checkbox" name="file_types" value="ai_eps" /> AI / EPS artwork</label>
+                    <label class="opt"><input type="checkbox" name="file_types" value="images" /> Images</label>
+                  </div>
+                </fieldset>
+                <div class="field" style="max-width:260px">
+                  <label for="as-largest-file">Largest typical file size (MB)</label>
+                  <input type="text" id="as-largest-file" name="largest_file_mb" maxlength="200" inputmode="decimal" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- E. Hosting and security -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section E</span>Hosting and security</legend>
+              <div class="sec-body">
+                <fieldset class="q">
+                  <legend>Hosting preference</legend>
+                  <div class="opt-group">
+                    <label class="opt"><input type="radio" name="hosting_preference" value="isoxpert_managed" /> ISOXPERT-managed</label>
+                    <label class="opt"><input type="radio" name="hosting_preference" value="dedicated" /> Dedicated</label>
+                    <label class="opt"><input type="radio" name="hosting_preference" value="customer_hosted" /> Customer-hosted</label>
+                    <label class="opt"><input type="radio" name="hosting_preference" value="unsure" /> Unsure</label>
+                  </div>
+                </fieldset>
+                <div class="frow">
+                  <fieldset class="q">
+                    <legend>Staff single sign-on (SSO) required?</legend>
+                    <div class="opt-group">
+                      <label class="opt"><input type="radio" name="sso_required" value="yes" /> Yes</label>
+                      <label class="opt"><input type="radio" name="sso_required" value="no" /> No</label>
+                    </div>
+                  </fieldset>
+                  <div class="field">
+                    <label for="as-sso-provider">SSO provider <span class="hint">e.g. Microsoft Entra ID, Okta</span></label>
+                    <input type="text" id="as-sso-provider" name="sso_provider" maxlength="200" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="as-security">Other security, data-location or IT approval requirements?</label>
+                  <textarea id="as-security" name="security_requirements" rows="4" maxlength="2000" placeholder="Please don't include credentials or passwords."></textarea>
+                </div>
+                <div class="field">
+                  <label for="as-dns-owner">Who controls website / DNS changes?</label>
+                  <input type="text" id="as-dns-owner" name="dns_owner" maxlength="200" placeholder="e.g. In-house IT, our web agency" />
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- F. Buying and next steps -->
+            <fieldset class="sec-set">
+              <legend><span class="step">Section F</span>Buying and next steps</legend>
+              <div class="sec-body">
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-decision-maker">Decision-maker</label>
+                    <input type="text" id="as-decision-maker" name="decision_maker" maxlength="200" placeholder="Name or role" />
+                  </div>
+                  <div class="field">
+                    <label for="as-budget">Budget range</label>
+                    <input type="text" id="as-budget" name="budget_range" maxlength="200" />
+                  </div>
+                </div>
+                <div class="frow">
+                  <div class="field">
+                    <label for="as-launch">Target launch date</label>
+                    <input type="text" id="as-launch" name="target_launch" maxlength="200" placeholder="e.g. Q2 2027" />
+                  </div>
+                  <div class="field">
+                    <label for="as-pilot">Pilot product family</label>
+                    <input type="text" id="as-pilot" name="pilot_family" maxlength="200" />
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="assess-submit">
+              <label class="consent" for="as-consent">
+                <input type="checkbox" id="as-consent" name="consent" value="true" required />
+                <span>I agree to ISOXPERT contacting me about this request and storing these details. <span class="req" aria-hidden="true">*</span></span>
+              </label>
+              <p class="hint">Please don't send drawings or files through this form. <span class="req" aria-hidden="true">*</span> Required.</p>
+              <button type="submit" class="btn btn-primary" id="assessBtn">Request a Design360 Assessment</button>
+              <p class="form-status" id="assessStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+
+          <div class="assess-done" id="assessDone" tabindex="-1" hidden>
+            <div class="kicker">Request received</div>
+            <h2 id="assessDoneTitle">Thank you, we've got your assessment.</h2>
+            <div id="assessDoneBody"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <a href="/" class="logo" aria-label="ISOXPERT home"><img src="/isoxpert-logo.png" alt="ISOXPERT" width="150" height="40" /></a>
+          <p class="about">Built on 28 years of management-systems consulting and audit practice — est. Karachi, Pakistan, 1997. Now AI-powered.</p>
+          <p class="about" style="margin-top:10px">Contact: <a href="mailto:info@isoxpert.com" target="_blank" rel="noopener noreferrer" style="color:#7eb0ff;font-weight:600">info@isoxpert.com</a></p>
+        </div>
+        <div>
+          <h5>Certification</h5>
+          <ul>
+            <li><a href="/iso-9001-certification.html">ISO 9001</a></li>
+            <li><a href="/iso-9001-certification-pakistan.html">ISO 9001 (Pakistan)</a></li>
+            <li><a href="/iso-14001-certification.html">ISO 14001</a></li>
+            <li><a href="/iso-27001-certification.html">ISO 27001</a></li>
+            <li><a href="/iso-22000-certification.html">ISO 22000</a></li>
+            <li><a href="/iso-documentation.html">ISO Documentation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="/design360.html">Design360</a></li>
+            <li><a href="https://compliance360.isoxpert.com" target="_blank" rel="noopener noreferrer">Compliance360</a></li>
+            <li><a href="https://inspect360suite.com" target="_blank" rel="noopener noreferrer">Inspection360</a></li>
+            <li><span style="opacity:.55">QC360 · soon</span></li>
+            <li><a href="https://audit360.isoxpert.com" target="_blank" rel="noopener noreferrer">Audit360</a></li>
+            <li><a href="/partners.html">Partner Program</a></li>
+            <li><a href="/cb-partnership.html">CB Partnership</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="yr">2026</span> ISOXPERT. All rights reserved.</span>
+        <span>ISOXPERT is not a certification body and does not issue certificates. Under common ownership with Company Certification International (CCI), a certification body — <a href="/governance.html" style="color:#7eb0ff;font-weight:600">disclosure</a>.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Primary: Design360 assessment queue (Inspect360 Supabase Edge Function, public).
+    // Contract: Inspect360/docs/partner/DESIGN360_ASSESSMENT_CONTRACT.md
+    // Fallback: Web3Forms email with a flattened summary, so no request is lost.
+    var DESIGN360_ASSESSMENT_ENDPOINT = 'https://xvmysyqxvouhplyapttt.supabase.co/functions/v1/design360-assessment';
+    var WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+    var WEB3FORMS_ACCESS_KEY = '8356636d-cd5a-4350-8e18-e4da75650451';
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    (function () {
+      var f = document.getElementById('assessForm');
+      if (!f) return;
+      var s = document.getElementById('assessStatus');
+      var b = document.getElementById('assessBtn');
+      var done = document.getElementById('assessDone');
+      var loadedAt = Date.now();
+      var each = function (list, fn) { Array.prototype.forEach.call(list, fn); };
+
+      var TEXT_FIELDS = ['company', 'website', 'contact_name', 'contact_role', 'email', 'phone', 'location',
+        'industry', 'employees', 'rfq_method_other', 'systems_names', 'customized_products', 'inputs_other',
+        'biggest_issue_other', 'erp_crm_name', 'largest_file_mb', 'sso_provider', 'security_requirements',
+        'dns_owner', 'decision_maker', 'budget_range', 'target_launch', 'pilot_family'];
+      var CHOICE_FIELDS = ['export_controlled', 'website_platform', 'rfq_method', 'monthly_enquiries',
+        'biggest_issue', 'preferred_access', 'live_pricing', 'cad_export', 'erp_crm_link',
+        'hosting_preference', 'sso_required'];
+      var MULTI_FIELDS = ['other_systems', 'inputs_required', 'file_types'];
+
+      // Readable order and labels for the Web3Forms fallback email.
+      var SUMMARY = [
+        ['Step 1 — Export-control screening'],
+        ['export_controlled', 'Export-controlled data (ITAR/EAR/CUI) or CMMC'],
+        ['A. Company and contact'],
+        ['company', 'Company'], ['website', 'Website'], ['contact_name', 'Contact name'], ['contact_role', 'Role'],
+        ['email', 'Email'], ['phone', 'Phone'], ['location', 'City / region'], ['country', 'Country'],
+        ['state', 'State / province'], ['industry', 'Industry'], ['employees', 'Employees'],
+        ['B. Current technology'],
+        ['website_platform', 'Website platform'], ['rfq_method', 'Current RFQ method'],
+        ['rfq_method_other', 'Other RFQ method'], ['other_systems', 'Other systems'], ['systems_names', 'System names'],
+        ['C. Business need'],
+        ['customized_products', 'Customized products'], ['inputs_required', 'Inputs required'],
+        ['inputs_other', 'Other inputs'], ['monthly_enquiries', 'Monthly custom enquiries'],
+        ['biggest_issue', 'Biggest issue'], ['biggest_issue_other', 'Other issue'],
+        ['D. Studio and integration'],
+        ['preferred_access', 'Preferred access'], ['live_pricing', 'Need live pricing'], ['cad_export', 'Need CAD export'],
+        ['erp_crm_link', 'Need ERP/CRM link'], ['erp_crm_name', 'ERP/CRM name'], ['file_types', 'Typical file types'],
+        ['largest_file_mb', 'Largest file size (MB)'],
+        ['E. Hosting and security'],
+        ['hosting_preference', 'Hosting preference'], ['sso_required', 'SSO required'], ['sso_provider', 'SSO provider'],
+        ['security_requirements', 'Security / IT requirements'], ['dns_owner', 'Website / DNS owner'],
+        ['F. Buying and next steps'],
+        ['decision_maker', 'Decision-maker'], ['budget_range', 'Budget range'], ['target_launch', 'Target launch'],
+        ['pilot_family', 'Pilot product family'],
+        ['Other'],
+        ['referral_code', 'Partner referral code'], ['source', 'Source']
+      ];
+
+      function field(name) { return f.querySelector('[name="' + name + '"]'); }
+      function text(name) {
+        var el = field(name);
+        return el && !el.disabled && el.value ? String(el.value).trim() : '';
+      }
+      function choice(name) {
+        var el = f.querySelector('[name="' + name + '"]:checked');
+        return el ? el.value : '';
+      }
+      function multi(name) {
+        var out = [];
+        each(f.querySelectorAll('[name="' + name + '"]:checked'), function (el) { out.push(el.value); });
+        return out;
+      }
+      function referralCode() {
+        try {
+          var stored = JSON.parse(localStorage.getItem('isx_partner_ref') || 'null');
+          return stored && typeof stored.code === 'string' ? stored.code : '';
+        } catch (e) { return ''; }
+      }
+      function isEscalation(v) { return v === 'yes' || v === 'unsure'; }
+
+      // ---------- Conditional UI ----------
+      var exportNotice = document.getElementById('exportNotice');
+      function syncExport() { exportNotice.hidden = !isEscalation(choice('export_controlled')); }
+
+      var conditionals = f.querySelectorAll('[data-show-when]');
+      function syncConditionals() {
+        each(conditionals, function (wrap) {
+          var rule = wrap.getAttribute('data-show-when').split('=');
+          var name = rule[0], value = rule[1];
+          var on = MULTI_FIELDS.indexOf(name) >= 0 ? multi(name).indexOf(value) >= 0 : choice(name) === value;
+          wrap.hidden = !on;
+          each(wrap.querySelectorAll('input, textarea, select'), function (el) {
+            el.disabled = !on;
+            if (!on) el.value = '';
+          });
+        });
+      }
+
+      var country = field('country');
+      var stateUsWrap = document.getElementById('stateUsWrap');
+      var stateOtherWrap = document.getElementById('stateOtherWrap');
+      var stateUs = field('state_us'), stateOther = field('state_other');
+      function syncState() {
+        var us = country.value === 'US';
+        stateUsWrap.hidden = !us; stateUs.disabled = !us;
+        stateOtherWrap.hidden = us; stateOther.disabled = us;
+        if (us) stateOther.value = ''; else stateUs.value = '';
+      }
+      function stateCode() {
+        var v = country.value === 'US' ? stateUs.value : stateOther.value;
+        return String(v || '').trim().toUpperCase();
+      }
+
+      // "None" in Other systems is exclusive of the others.
+      function syncNone(e) {
+        var t = e.target;
+        if (!t || t.name !== 'other_systems' || !t.checked) return;
+        each(f.querySelectorAll('[name="other_systems"]'), function (el) {
+          if (t.value === 'none' ? el.value !== 'none' : el.value === 'none') el.checked = false;
+        });
+      }
+
+      f.addEventListener('change', function (e) {
+        syncNone(e);
+        syncExport();
+        syncConditionals();
+        if (e.target === country) syncState();
+      });
+      syncExport(); syncConditionals(); syncState();
+
+      // ---------- Payload (per contract) ----------
+      function buildPayload() {
+        var p = {};
+        each(TEXT_FIELDS, function (n) { var v = text(n); if (v) p[n] = v; });
+        each(CHOICE_FIELDS, function (n) { var v = choice(n); if (v) p[n] = v; });
+        each(MULTI_FIELDS, function (n) { var v = multi(n); if (v.length) p[n] = v; });
+        if (country.value) p.country = country.value;
+        var st = stateCode();
+        if (st) p.state = st;
+        p.consent = true;
+        p.source = 'isoxpert.com';
+        var ref = referralCode();
+        if (ref) p.referral_code = ref;
+        if (field('botcheck').checked) p._gotcha = '1';
+        return p;
+      }
+
+      function optionLabel(name, value) {
+        var el = f.querySelector('[name="' + name + '"][value="' + value + '"]');
+        if (el && el.parentNode && el.parentNode.tagName === 'LABEL') return el.parentNode.textContent.replace(/\s+/g, ' ').trim();
+        return value;
+      }
+      function selectLabel(el) {
+        return el && el.selectedIndex > 0 ? el.options[el.selectedIndex].text + ' (' + el.value + ')' : '';
+      }
+      function summarize(p) {
+        var lines = [], heading = null;
+        if (isEscalation(p.export_controlled)) {
+          lines.push('*** EXPORT-CONTROL ESCALATION: answer was "' + p.export_controlled + '". Not eligible for the shared environment; do not collect drawings. ***');
+        }
+        each(SUMMARY, function (row) {
+          if (row.length === 1) { heading = row[0]; return; }
+          var name = row[0], v = p[name], shown;
+          if (v === undefined || v === '') return;
+          if (name === 'country') shown = selectLabel(country);
+          else if (name === 'employees') shown = v;
+          else if (Object.prototype.toString.call(v) === '[object Array]') {
+            shown = v.map(function (x) { return optionLabel(name, x); }).join(', ');
+          } else if (CHOICE_FIELDS.indexOf(name) >= 0) shown = optionLabel(name, v);
+          else shown = v;
+          // Print a section heading only once it has at least one answer.
+          if (heading) { if (lines.length) lines.push(''); lines.push('— ' + heading + ' —'); heading = null; }
+          lines.push(row[1] + ': ' + shown);
+        });
+        lines.push('', 'Consent to contact and storage: yes');
+        return lines.join('\n');
+      }
+
+      // Resolves { ok, escalate } — ok only on a 2xx whose JSON body has success === true.
+      function submitToEndpoint(payload) {
+        return fetch(DESIGN360_ASSESSMENT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        }).then(function (r) {
+          if (!r.ok) return { ok: false };
+          return r.json().then(function (j) {
+            return j && j.success === true ? { ok: true, escalate: j.escalate === true } : { ok: false };
+          }, function () { return { ok: false }; });
+        }, function () { return { ok: false }; });
+      }
+      // Resolves true when Web3Forms accepted the email.
+      function submitToWeb3Forms(payload) {
+        return fetch(WEB3FORMS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: 'Design360 assessment request — ' + (payload.company || ''),
+            from_name: 'ISOXPERT Website',
+            name: payload.contact_name || '',
+            email: payload.email || '',
+            replyto: payload.email || '',
+            message: summarize(payload)
+          })
+        }).then(function (r) { return r.json(); }).then(function (j) {
+          return !!(j && j.success);
+        }, function () { return false; });
+      }
+
+      function showDone(escalate) {
+        var title = document.getElementById('assessDoneTitle');
+        var body = document.getElementById('assessDoneBody');
+        if (escalate) {
+          title.textContent = 'Thank you. We\'ll contact you about a dedicated environment.';
+          body.innerHTML =
+            '<div class="notice-amber"><p><b>Your project can\'t use the shared Design360 environment.</b></p>' +
+            '<p>Because your technical data may include export-controlled information (ITAR, EAR or CUI) or CMMC requirements, ' +
+            'ISOXPERT will contact you about a dedicated environment. <b>Please don\'t send drawings, files or technical data</b> ' +
+            'by email or through this website in the meantime.</p></div>';
+        } else {
+          title.textContent = 'Thank you, we\'ve got your assessment.';
+          body.innerHTML =
+            '<p>We\'ll review your answers and contact you to book a discovery call. If Design360 is a fit, we\'ll recommend a paid pilot for one product family.</p>' +
+            '<p>Please don\'t send drawings or files ahead of the call.</p>';
+        }
+        f.hidden = true;
+        done.hidden = false;
+        done.focus();
+        if (done.scrollIntoView) done.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        s.textContent = ''; s.className = 'form-status';
+        if (field('botcheck').checked) return;
+        if (Date.now() - loadedAt < 2500) { s.textContent = 'Please take a moment before submitting.'; s.className = 'form-status err'; return; }
+        if (!f.checkValidity()) { f.reportValidity(); return; }
+        var original = b.textContent; b.disabled = true; b.textContent = 'Sending…';
+        var payload = buildPayload();
+        submitToEndpoint(payload).then(function (res) {
+          if (res.ok) return { ok: true, escalate: res.escalate };
+          // Queue unavailable or rejected: fall back to Web3Forms so no request is lost.
+          return submitToWeb3Forms(payload).then(function (sent) {
+            return { ok: sent, escalate: isEscalation(payload.export_controlled) };
+          });
+        }).then(function (result) {
+          if (result.ok) showDone(result.escalate);
+          else { s.textContent = 'Something went wrong. Please email info@isoxpert.com.'; s.className = 'form-status err'; }
+        }).catch(function () { s.textContent = 'Network error. Please email info@isoxpert.com.'; s.className = 'form-status err'; })
+        .finally(function () { b.disabled = false; b.textContent = original; });
+      });
+    })();
+  </script>
+
+  <!-- Vercel Web Analytics + Speed Insights -->
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script>
+    (function () {
+      var b = document.getElementById('menuBtn'), n = document.getElementById('navLinks');
+      if (!b || !n) return;
+      b.addEventListener('click', function () {
+        var open = n.classList.toggle('open');
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      n.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') n.classList.remove('open');
+      });
+    })();
+  </script>
+  <script defer src="/partner-ref.js"></script>
+</body>
+</html>
